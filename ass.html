@@ -75,6 +75,377 @@
     <script>
         // Questions array
         const questions = [
+        {
+            "question": "What is the primary function of a transducer?",
+            "options": ["To store energy", "To convert signal from one physical form to another physical form", "To generate eddy current", "To generate heat"],
+            "correct": 1
+        },
+        {
+            "question": "Which device converts sound to an electrical signal?",
+            "options": ["Speaker", "Antenna", "Microphone", "Strain gauge"],
+            "correct": 2
+        },
+        {
+            "question": "Which sensor can detect gases like LPG, CH4, and CO?",
+            "options": ["DHT22", "MQ-5", "HC-SR04", "PIR"],
+            "correct": 1
+        },
+        {
+            "question": "What does 'Resolution' indicate in a sensor?",
+            "options": ["The correctness of the output", "The smallest change in input that can be detected", "The range of sensing", "The difference between standard and measured values"],
+            "correct": 1
+        },
+        {
+            "question": "Which modulation technique is used by Zigbee for the 2.4 GHz band?",
+            "options": ["BPSK", "QPSK", "OQPSK", "FSK"],
+            "correct": 2
+        },
+        {
+            "question": "What does 6LoWPAN optimize?",
+            "options": ["Load balancing in Legacy High-power networks", "Packet transmission in Low-power and lossy networks (LLN)", "Cryptography in Medium-power networks", "Error detection in Long-range networks"],
+            "correct": 1
+        },
+        {
+            "question": "How long is the Network ID in a Z-Wave network?",
+            "options": ["1 Byte", "2 Bytes", "4 Bytes", "8 Bytes"],
+            "correct": 2
+        },
+        {
+            "question": "Which range is typical for Class 1 Bluetooth radios?",
+            "options": ["1 meter", "10 meters", "30 meters", "100 meters"],
+            "correct": 3
+        },
+        {
+            "question": "What does the Constrained RESTful Environments (CoRE) framework include for service discovery?",
+            "options": ["Registration Interface (RI)", "Resource Directory (RD)", "REST based protocols such as HTTP and CoAP", "All of the above"],
+            "correct": 3
+        },
+        {
+            "question": "Which policy controls the duration for which transmitted data is considered to be valid in an IoT network?",
+            "options": ["History policy", "Latency budget policy", "Lifespan policy", "Deadline policy"],
+            "correct": 2
+        },
+        {
+            "question": "How many levels of QoS does MQTT support?",
+            "options": ["2", "3", "4", "5"],
+            "correct": 1
+        },
+        {
+            "question": "Which protocol is CoAP based on?",
+            "options": ["TCP", "FTP", "UDP", "HTTP"],
+            "correct": 2
+        },
+        {
+            "question": "For what kind of applications is AMQP optimized for?",
+            "options": ["Entertainment", "Financial", "Vehicular", "Educational"],
+            "correct": 1
+        },
+        {
+            "question": "Which layer in IoT architecture is responsible for predictive analytics and data management?",
+            "options": ["Sensing layer", "Networking layer", "Service layer", "Interface layer"],
+            "correct": 2
+        },
+        {
+            "question": "A sensor’s accuracy does not depend upon its resolution. State True or False.",
+            "options": ["True", "False"],
+            "correct": 0
+        }, {
+            "question": "Which of the following is NOT a characteristic of the Fourth Industrial Revolution?",
+            "options": ["Extensive use of ubiquitous and mobile internet", "Use of artificial intelligence and machine learning", "Invention of the steam engine", "Development of Cyber Physical Systems (CPS)"],
+            "correct": 2
+        },
+        {
+            "question": "What is a significant characteristic of new materials in the context of the Fourth Industrial Revolution?",
+            "options": ["High cost and scarcity", "Lighter, stronger, recyclable, and adaptive", "Easily available but very expensive", "Non-recyclable and heavy"],
+            "correct": 1
+        },
+        {
+            "question": "Which of the following equipment can manifest physical objects based on digital specifications?",
+            "options": ["3D Printer", "Digital Microscope", "DSLR Camera", "Magnetic Separator"],
+            "correct": 0
+        },
+        {
+            "question": "Which of the following is not a characteristic of a sustainable industry?",
+            "options": ["Energy efficiency", "Reliance on government subsidy", "Conservation of resource", "Low-waste production"],
+            "correct": 1
+        },
+        {
+            "question": "What is considered the main nervous system of any manufacturing industry?",
+            "options": ["Human Resources", "Information and Communication Technology (ICT)", "Supply Chain Management (SCM)", "Marketing"],
+            "correct": 1
+        },
+        {
+            "question": "What is the impact of increasing renewable energy consumption on sustainability?",
+            "options": ["Increases sustainability", "Increases waste product", "Unpredictable consumption", "Introduces delay"],
+            "correct": 0
+        },
+        {
+            "question": "What is the concept of JIDOKA in Lean Production System?",
+            "options": ["Producing just what is needed", "Stopping production when there is a problem", "Reducing inventory", "Increasing production speed"],
+            "correct": 1
+        },
+        {
+            "question": "What is a 'value stream' in Lean Production System?",
+            "options": ["A set of tools for production", "All the actions required for a product from order to delivery", "A method of employee training", "A type of waste reduction"],
+            "correct": 1
+        },
+        {
+            "question": "What does L, D and T stand for under ‘People Engagement’ in the Lean production System?",
+            "options": ["Learn, Do, Teach", "Leverage, Divulge, Teardown", "Lean, Diverse, Timid", "Loan, Deploy, Test"],
+            "correct": 0
+        },
+        {
+            "question": "Which of the following is a benefit of smart and connected products?",
+            "options": ["Increased manual labor", "Improved recall process of product", "Higher production costs", "Decreased automation"],
+            "correct": 1
+        },
+        {
+            "question": "Which resource is associated with the 'Optimization' categorization of Smart and connected products?",
+            "options": ["Optimization algorithms", "Manual controls", "Marketing data", "Financial reports"],
+            "correct": 0
+        },
+        {
+            "question": "What is a smart factory according to the Deloitte University Press?",
+            "options": ["A system that reduces manual labor", "A flexible system that can self-optimize performance", "A traditional factory with enhanced communication", "A fully automated production facility"],
+            "correct": 1
+        },
+        {
+            "question": "What are the characteristics of smart factories?",
+            "options": ["Connection, Optimization, Transparent, Proactivity, Agility", "Manual operation, High cost, Slow processing", "Limited connectivity, High energy consumption", "Inefficient resource usage"],
+            "correct": 0
+        },
+        {
+            "question": "The amalgamation of CPS and the evolution of Internet-based technologies led to the development of the Industrial Internet. State True or False.",
+            "options": ["True", "False", "Cannot be determined", "None of the above"],
+            "correct": 0
+        },
+        {
+            "question": "The real-time monitoring of the supply chain reduces inventory and capital requirements. State True or False.",
+            "options": ["True", "False", "Cannot be determined", "None of the above"],
+            "correct": 0
+        },{
+            "question": "What are Cyber-Physical Systems (CPS)?",
+            "options": ["Systems that operate solely on physical components", "Systems that operate only on computational components", "Interacting networks of physical and computational components", "Systems without any computational components"],
+            "correct": 2
+        },
+        {
+            "question": "What is one of the key features of CPS in terms of computation?",
+            "options": ["Static computation", "Reactive computation", "Limited computation", "Redundant computation"],
+            "correct": 1
+        },
+        {
+            "question": "What architecture is used for designing CPS-based manufacturing systems for Industry 4.0?",
+            "options": ["3C architecture", "5C architecture", "7C architecture", "9C architecture"],
+            "correct": 1
+        },
+        {
+            "question": "What is a collaboration platform in the context of Industry 4.0?",
+            "options": ["A type of business software that combines organizational networking capacities with operations", "A social media platform for employees", "A traditional project management tool", "A financial management system"],
+            "correct": 0
+        },
+        {
+            "question": "What does Single Source of Truth (SSoT) refer to in collaboration productivity?",
+            "options": ["Storing every data element exactly once", "Storing multiple copies of each data element", "Using outdated software for decision making", "Storing data in various formats across different systems"],
+            "correct": 0
+        },
+        {
+            "question": "What is required for effective coordination in Industry 4.0 collaboration productivity?",
+            "options": ["Isolated decision-making", "Centralized authority", "Stronger coordination between multiple industry agents", "Reducing the exchange of information"],
+            "correct": 2
+        },
+        {
+            "question": "What is a key feature of Augmented Reality (AR)?",
+            "options": ["Completely replacing the physical environment", "Enhancing the present perception of reality", "Only providing auditory feedback", "Operating in isolated systems"],
+            "correct": 1
+        },
+        {
+            "question": "What is a characteristic of Projection-based Augmented Reality?",
+            "options": ["Uses GPS for location-based services", "Projects light onto real-world surfaces", "Requires physical markers", "Only provides visual feedback"],
+            "correct": 1
+        },
+        {
+            "question": "What does a fully immersive VR simulation provide?",
+            "options": ["Limited interaction with the virtual environment", "A wide field of view with head-mounted displays and motion detecting devices", "Only visual feedback without interaction", "Manual control over the virtual environment"],
+            "correct": 1
+        },
+        {
+            "question": "What type of AR uses visual markers for outcomes?",
+            "options": ["Marker-based Augmented Reality", "Markerless Augmented Reality", "Projection Based Augmented Reality", "Superimposition Based Augmented Reality"],
+            "correct": 0
+        },
+        {
+            "question": "Who proposed the first use of the phrase 'Artificial Intelligence'?",
+            "options": ["Alan Turing", "John McCarthy", "Marvin Minsky", "Herbert Simon"],
+            "correct": 1
+        },
+        {
+            "question": "Which of the following statements is true?",
+            "options": ["A program without AI uses a large knowledge base and heuristic search method", "A program with AI uses a large database and algorithmic search method", "A program with AI uses a large knowledge base and heuristic search method", "A program without AI uses a large database and heuristic search method"],
+            "correct": 2
+        },
+        {
+            "question": "According to NIST, what restricts the capacity of using conventional methods to manage Big Data?",
+            "options": ["Data quality", "Acquisition speed, data volume, or data characterization", "Data accessibility", "Data format"],
+            "correct": 1
+        },
+        {
+            "question": "What does the velocity characteristic of Big Data refer to?",
+            "options": ["The category of the data", "The speed of generation of data", "The quality of the data", "The volume of the data"],
+            "correct": 1
+        },
+        {
+            "question": "Which of the following are constraints of mobile CPS?",
+            "options": ["Network stability", "Power requirement", "Security", "All of the above"],
+            "correct": 3
+        },{
+            "question": "What role does Application Security play in Cybersecurity for Industry 4.0?",
+            "options": ["Prevents unauthorized physical access", "Ensures the protection of applications from outer threats", "Locks the user’s computer files by using encryption and demands some money to unlock them", "Resolves network architecture issues"],
+            "correct": 1
+        },
+        {
+            "question": "What is Operational Security (OPSEC)?",
+            "options": ["A method to increase hardware performance", "An analytical action that categorizes information benefits and regulates control for protection", "A technique to reduce software complexity", "A process to enhance network speed"],
+            "correct": 1
+        },
+        {
+            "question": "What is Ransomware?",
+            "options": ["A type of malware that provides a facility to the attacker to lock user’s computer files by using encryption and demand money to unlock them", "A program that increases computer performance", "A system to enhance network speed", "A method to secure data from unauthorized access"],
+            "correct": 0
+        },
+        {
+            "question": "What is the primary aim of the Industrial Internet of Things (IIoT)?",
+            "options": ["Increase machine life and optimize operational efficiency", "Enhance social media presence", "Decrease manufacturing costs significantly", "Replace human labor completely"],
+            "correct": 0
+        },
+        {
+            "question": "What is a major challenge in the deployment of IIoT?",
+            "options": ["Legacy installations", "Cybersecurity", "Lack of standardization", "All of the above"],
+            "correct": 3
+        },
+        {
+            "question": "What does IIoT provide in the context of firefighting?",
+            "options": ["Increased data redundancy", "Real-time monitoring and early warning of disasters", "Manual rescue operations", "Reduced connectivity among devices"],
+            "correct": 1
+        },
+        {
+            "question": "What are the three waves of industrial level innovation according to GE?",
+            "options": ["The Internet Revolution, The Digital Revolution, The Industrial Internet", "The Industrial Revolution, The Internet Revolution, The Industrial Internet", "The Agricultural Revolution, The Internet Revolution, The Industrial Internet", "The Scientific Revolution, The Industrial Revolution, The Internet Revolution"],
+            "correct": 1
+        },
+        {
+            "question": "What are the three key elements of the Industrial Internet?",
+            "options": ["Manual machines, basic analytics, isolated systems", "Advanced analytics, intelligent machines, people at work", "Traditional methods, paper-based records, local systems", "Low-level computing, limited data, manual labor"],
+            "correct": 1
+        },
+        {
+            "question": "What is a major drawback of Industrial Revolution?",
+            "options": ["It had no impact on the environment", "It created a bad working environment and inefficient processes", "It reduced the use of fossil fuels", "It enhanced the quality of life for all workers"],
+            "correct": 1
+        },
+        {
+            "question": "What is the primary source of IIoT data?",
+            "options": ["Actuators", "Controllers", "Sensors", "Network systems"],
+            "correct": 2
+        },
+        {
+            "question": "Which component is NOT part of the configurations involved in smart sensors?",
+            "options": ["Multiparameter Sensing Unit", "Analog Detection Circuit", "Digital Signal Conditioning Unit", "Manual Control Unit"],
+            "correct": 3
+        },
+        {
+            "question": "What is the role of conventional sensing in industrial control systems?",
+            "options": ["To increase the complexity of systems", "To involve feedback automation of a process", "To disconnect systems from feedback loops", "To reduce the reliability of systems"],
+            "correct": 1
+        },
+        {
+            "question": "Which sector is predicted to have the highest growth in Industry 4.0 as per PwC’s Global Industry 4.0 Survey of 2016?",
+            "options": ["Electronics", "Manufacturing", "Defense", "Automotive"],
+            "correct": 0
+        },
+        {
+            "question": "What is the focus of the 'Control Layer' in the 5C Architecture for Cyber Physical Systems?",
+            "options": ["Data collection", "Sensor-based monitoring", "Supervised control: Self-configure, Self-optimize, Self-adjust", "Human-readable interpretation and data visualization"],
+            "correct": 2
+        },
+        {
+            "question": "In the existing GSM cellular phones, a smart card is used to provide security to e-commerce applications, using encryption and digital signatures. What is it called?",
+            "options": ["Wireless Identity Module (WIM)", "Trusted Platform Module (TPM)", "USB Token", "None of the above"],
+            "correct": 0
+        },{
+            "question": "Which of the following is an inclusion in the Industry 4.0 application as per ICP DAS?",
+            "options": ["Manual data entry", "Supply chain automation", "Isolated machine operation", "Traditional logistics"],
+            "correct": 1
+        },
+        {
+            "question": "Which technology does Caterpillar integrate with IoT for enhanced machine interaction?",
+            "options": ["Virtual Reality (VR)", "Augmented Reality (AR)", "Blockchain", "Manual controls"],
+            "correct": 1
+        },
+        {
+            "question": "What is the objective of the Cisco & Fanuc smart factory initiative?",
+            "options": ["Maximize downtime in industrial facilities", "Minimize downtime in industrial facilities", "Increase manual operations", "Decrease system efficiency"],
+            "correct": 1
+        },
+        {
+            "question": "Which of the following is NOT one of the building blocks of a business model?",
+            "options": ["Value Proposition", "Market Segment", "Employee Satisfaction", "Revenue Generation and Margins"],
+            "correct": 2
+        },
+        {
+            "question": "Which of the following is NOT a type of customer segment?",
+            "options": ["Mass market", "Niche market", "Segmented market", "Unsegmented market"],
+            "correct": 3
+        },
+        {
+            "question": "What is a characteristic of the Subscription Model in IoT business models?",
+            "options": ["One-time charge", "Recurring revenue through regular subscription fees", "High upfront cost", "Limited customer interaction"],
+            "correct": 1
+        },
+        {
+            "question": "Which of the following is NOT a type of IIoT business model?",
+            "options": ["Cloud-based Business Model", "Service-Oriented Business Model", "Process-Oriented Business Model", "Product-Based Business Model"],
+            "correct": 3
+        },
+        {
+            "question": "What is an SLA in the context of business transactions?",
+            "options": ["Service-level agreement", "Socio legal amendment", "Stop Loss Activation", "Symmetrical Link Aggregation"],
+            "correct": 0
+        },
+        {
+            "question": "What does Infrastructure-as-a-Service (IaaS) provide?",
+            "options": ["Only software online in the cloud", "Required hardware and software online in the cloud", "Only data storage services", "Manual computing resources"],
+            "correct": 1
+        },
+        {
+            "question": "Which business model aims at process optimization within a company and across company borders?",
+            "options": ["Cloud-Based Business Model", "Service-Oriented Business Model", "Process-Oriented Business Model", "Product-Based Business Model"],
+            "correct": 2
+        },
+        {
+            "question": "What type of KPI is input-oriented and hard to measure?",
+            "options": ["Leading KPI", "Lagging KPI", "Output KPI", "Static KPI"],
+            "correct": 0
+        },
+        {
+            "question": "Which of the following is a major focus and activity of Industrial Internet Consortium (IIC) members?",
+            "options": ["Market analysis", "Testbeds", "Customer surveys", "Manual data entry"],
+            "correct": 1
+        },
+        {
+            "question": "What does the Usage Viewpoint in IIRA relate to?",
+            "options": ["System requirements and key objectives", "High-level specifications and fundamental capabilities", "Key capabilities identified in the business viewpoint and activities coordinating different units of work", "Interfaces, protocols, and system characteristics"],
+            "correct": 2
+        },
+        {
+            "question": "What are the elements of an activity in the Usage Viewpoint of IIRA?",
+            "options": ["Role, Task, Workflow, Implementation Map", "Trigger, Workflow, Constraints, Effects", "Physical Systems, Control, Sense, Actuation", "Vision, Values, Key Objectives, Fundamental Capabilities"],
+            "correct": 1
+        },
+        {
+            "question": "Which viewpoint relates to the technical representation of an IIoT system, including interfaces and protocols?",
+            "options": ["Business Viewpoint", "Usage Viewpoint", "Functional Viewpoint", "Implementation Viewpoint"],
+            "correct": 3
+        },
             {
                 question: "Which of the following is one of the benefits of sensor usage in industry?",
                 options: ["Increasing downtime due to routine maintenance", "Reduced manual intervention for sensing in hazardous areas", "Manual data entry", "Limited operational efficiency"],
