@@ -20,8 +20,9 @@
             align-items: center;
             flex-direction: column;
             min-height: 100vh;
-            background: linear-gradient(135deg, #ff7e5f, #feb47b);
+            background: radial-gradient(circle, #1a1a1d, #4e4e50);
             color: #fff;
+            overflow: hidden;
         }
 
         /* Header Styling */
@@ -29,12 +30,21 @@
             font-size: 3rem;
             text-transform: uppercase;
             margin-top: 20px;
+            animation: fadeIn 1.5s ease-in-out;
+            letter-spacing: 3px;
         }
 
         h2 {
             font-size: 1.5rem;
             font-weight: 300;
             margin-bottom: 40px;
+            animation: fadeIn 1.5s ease-in-out 0.5s;
+        }
+
+        /* Keyframe Animation for fade-in */
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(-20px); }
+            100% { opacity: 1; transform: translateY(0); }
         }
 
         /* Container Styling */
@@ -43,39 +53,67 @@
             grid-template-columns: repeat(4, 1fr);
             gap: 20px;
             max-width: 1000px;
-            padding: 20px;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
         }
 
         /* Week Box Styling */
         .week-box {
+            position: relative;
             padding: 20px;
             text-align: center;
             font-size: 1.2rem;
             font-weight: bold;
             color: #fff;
-            background: #333;
             border-radius: 10px;
             cursor: pointer;
-            transition: transform 0.3s ease, background-color 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             text-decoration: none;
-            display: block;
+            overflow: hidden;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
         }
 
-        /* Colors for each box */
-        .week-box:nth-child(odd) {
-            background: #6a11cb;
-            background: linear-gradient(135deg, #6a11cb, #2575fc);
-        }
+        /* Neon Colors for each box */
+        .week-box:nth-child(1) { background: linear-gradient(135deg, #ff6a00, #ee0979); }
+        .week-box:nth-child(2) { background: linear-gradient(135deg, #00c6ff, #0072ff); }
+        .week-box:nth-child(3) { background: linear-gradient(135deg, #f7971e, #ffd200); }
+        .week-box:nth-child(4) { background: linear-gradient(135deg, #8e2de2, #4a00e0); }
+        .week-box:nth-child(5) { background: linear-gradient(135deg, #fc5c7d, #6a82fb); }
+        .week-box:nth-child(6) { background: linear-gradient(135deg, #f953c6, #b91d73); }
+        .week-box:nth-child(7) { background: linear-gradient(135deg, #c33764, #1d2671); }
+        .week-box:nth-child(8) { background: linear-gradient(135deg, #3a1c71, #ffaf7b); }
+        .week-box:nth-child(9) { background: linear-gradient(135deg, #00f260, #0575e6); }
+        .week-box:nth-child(10) { background: linear-gradient(135deg, #e1eec3, #f05053); }
+        .week-box:nth-child(11) { background: linear-gradient(135deg, #d3cce3, #e9e4f0); }
+        .week-box:nth-child(12) { background: linear-gradient(135deg, #5433ff, #20bdff); }
+        .week-box:nth-child(13) { background: linear-gradient(135deg, #2193b0, #6dd5ed); }
 
-        .week-box:nth-child(even) {
-            background: #ff4e50;
-            background: linear-gradient(135deg, #ff4e50, #f9d423);
-        }
-
-        /* Hover Effect */
+        /* Hover Effects */
         .week-box:hover {
             transform: scale(1.1);
-            background-color: #444;
+            box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.4), 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+
+        /* Glow Animation */
+        .week-box::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s ease, height 0.6s ease;
+        }
+
+        .week-box:hover::before {
+            width: 300%;
+            height: 300%;
         }
 
         /* Responsive Design */
@@ -112,7 +150,7 @@
         <a href="week10.html" class="week-box">Week 10</a>
         <a href="week11.html" class="week-box">Week 11</a>
         <a href="week12.html" class="week-box">Week 12</a>
-        <a href="ass.html" class="week-box">Assigment</a>
+        <a href="ass.html" class="week-box">Assignment</a>
     </div>
 </body>
 </html>
