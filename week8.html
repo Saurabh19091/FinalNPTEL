@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f4f4f9;
+        }
+        .question {
+            margin-bottom: 20px;
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        p {
+            font-size: 1.1em;
+        }
+        ol {
+            padding-left: 20px;
+        }
+        li {
+            cursor: pointer;
+            margin: 8px 0;
+            padding: 10px;
+            background-color: #e6e6e6;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        li:hover {
+            background-color: #d0d0d0;
+        }
+        .answer {
+            font-weight: bold;
+            color: green;
+        }
+        .incorrect {
+            font-weight: bold;
+            color: red;
+        }
+        .feedback {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    
+    <div class="question">
+        <p>1. What is the main purpose of IIoT analytics?</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'B')">A) Real-time data entry</li>
+            <li onclick="checkAnswer(this, 'B')">B) Dynamic operations optimization and prognostic maintenance</li>
+            <li onclick="checkAnswer(this, 'B')">C) Manual data handling</li>
+            <li onclick="checkAnswer(this, 'B')">D) Printing device reports</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>2. Which type of IIoT analytics focuses on describing past data trends?</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'C')">A) Predictive Analytics</li>
+            <li onclick="checkAnswer(this, 'C')">B) Prescriptive Analytics</li>
+            <li onclick="checkAnswer(this, 'C')">C) Descriptive Analytics</li>
+            <li onclick="checkAnswer(this, 'C')">D) Real-time Analytics</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>3. What are the "5 Vs" of Big Data often relevant in IIoT?</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'A')">A) Volume, Velocity, Variety, Veracity, Variability</li>
+            <li onclick="checkAnswer(this, 'A')">B) Volume, Value, Versatility, Validity, Vision</li>
+            <li onclick="checkAnswer(this, 'A')">C) Velocity, Vision, Veracity, Variation, Value</li>
+            <li onclick="checkAnswer(this, 'A')">D) Variety, Visibility, Veracity, Versatility, Variability</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>4. Which of the following enables data-driven process automation in IIoT?</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'A')">A) Prescriptive Analytics</li>
+            <li onclick="checkAnswer(this, 'A')">B) Manual data processing</li>
+            <li onclick="checkAnswer(this, 'A')">C) Paper logs</li>
+            <li onclick="checkAnswer(this, 'A')">D) Traditional statistics</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>5. What is the main focus of machine learning in IIoT applications?</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'B')">A) Pre-programmed rules</li>
+            <li onclick="checkAnswer(this, 'B')">B) Data-driven model building</li>
+            <li onclick="checkAnswer(this, 'B')">C) Static process monitoring</li>
+            <li onclick="checkAnswer(this, 'B')">D) Data entry</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>6. Which type of machine learning requires labeled data?</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'B')">A) Unsupervised Learning</li>
+            <li onclick="checkAnswer(this, 'B')">B) Supervised Learning</li>
+            <li onclick="checkAnswer(this, 'B')">C) Reinforcement Learning</li>
+            <li onclick="checkAnswer(this, 'B')">D) Deep Learning</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>7. Which machine learning approach finds structure in data without labels?</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'B')">A) Supervised Learning</li>
+            <li onclick="checkAnswer(this, 'B')">B) Unsupervised Learning</li>
+            <li onclick="checkAnswer(this, 'B')">C) Reinforcement Learning</li>
+            <li onclick="checkAnswer(this, 'B')">D) Regression Analysis</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>8. What is a key characteristic of deep learning in IIoT?</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'B')">A) Requires labeled data only</li>
+            <li onclick="checkAnswer(this, 'B')">B) Learns features automatically without manual intervention</li>
+            <li onclick="checkAnswer(this, 'B')">C) Uses simple algorithms</li>
+            <li onclick="checkAnswer(this, 'B')">D) Operates on low computational power</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>9. Which layer in IIoT processes data instantly to trigger alerts?</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'B')">A) Batch Processing</li>
+            <li onclick="checkAnswer(this, 'B')">B) Real-time Analytics</li>
+            <li onclick="checkAnswer(this, 'B')">C) Data Aggregation Layer</li>
+            <li onclick="checkAnswer(this, 'B')">D) Report Generation Layer</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>10. Which software is commonly used for IIoT batch processing?</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'B')">A) Apache Storm</li>
+            <li onclick="checkAnswer(this, 'B')">B) Apache Hadoop</li>
+            <li onclick="checkAnswer(this, 'B')">C) Microsoft Word</li>
+            <li onclick="checkAnswer(this, 'B')">D) Adobe Photoshop</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>11. Prognostic analytics is primarily used to:</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'B')">A) Detect real-time anomalies</li>
+            <li onclick="checkAnswer(this, 'B')">B) Predict the remaining useful life of assets</li>
+            <li onclick="checkAnswer(this, 'B')">C) Perform historical data analysis</li>
+            <li onclick="checkAnswer(this, 'B')">D) Adjust machine speeds automatically</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>12. Which analytics type is used for long-term statistical analysis in IIoT?</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'C')">A) Real-time Processing</li>
+            <li onclick="checkAnswer(this, 'C')">B) Streaming Analytics</li>
+            <li onclick="checkAnswer(this, 'C')">C) Batch Processing</li>
+            <li onclick="checkAnswer(this, 'C')">D) Descriptive Analytics</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>13. What model type would typically be used for anomaly detection in IIoT?</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'A')">A) Gaussian Mixture Model</li>
+            <li onclick="checkAnswer(this, 'A')">B) Linear Regression</li>
+            <li onclick="checkAnswer(this, 'A')">C) Decision Tree</li>
+            <li onclick="checkAnswer(this, 'A')">D) Simple Averaging</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>14. The main benefit of real-time stream processing in IIoT is:</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'B')">A) Performing data analysis monthly</li>
+            <li onclick="checkAnswer(this, 'B')">B) Immediate event-based actions</li>
+            <li onclick="checkAnswer(this, 'B')">C) Saving battery power</li>
+            <li onclick="checkAnswer(this, 'B')">D) Improved manual data entry</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>15. Which IIoT cloud service provides users with control over the application and configuration environment?</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'B')">A) SaaS</li>
+            <li onclick="checkAnswer(this, 'B')">B) PaaS</li>
+            <li onclick="checkAnswer(this, 'B')">C) IaaS</li>
+            <li onclick="checkAnswer(this, 'B')">D) Edge Computing</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>16. What is a primary application of prescriptive analytics in IIoT?</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'C')">A) Describing historical trends</li>
+            <li onclick="checkAnswer(this, 'C')">B) Predicting future trends</li>
+            <li onclick="checkAnswer(this, 'C')">C) Recommending optimal actions</li>
+            <li onclick="checkAnswer(this, 'C')">D) Visualizing data</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>17. Which of these is a commonly used industrial cloud platform?</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'B')">A) Dropbox</li>
+            <li onclick="checkAnswer(this, 'B')">B) GE Predix</li>
+            <li onclick="checkAnswer(this, 'B')">C) Google Docs</li>
+            <li onclick="checkAnswer(this, 'B')">D) Facebook</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>18. What does "SaaS" stand for in cloud computing?</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'A')">A) Software-as-a-Service</li>
+            <li onclick="checkAnswer(this, 'A')">B) Storage-as-a-Service</li>
+            <li onclick="checkAnswer(this, 'A')">C) Security-as-a-Service</li>
+            <li onclick="checkAnswer(this, 'A')">D) Solution-as-a-Service</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>19. In IIoT, a "digital twin" is:</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'B')">A) A robot</li>
+            <li onclick="checkAnswer(this, 'B')">B) A virtual replica of a physical asset</li>
+            <li onclick="checkAnswer(this, 'B')">C) A new device type</li>
+            <li onclick="checkAnswer(this, 'B')">D) An automated manual system</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>20. MindSphere, an IIoT platform, is developed by:</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'B')">A) IBM</li>
+            <li onclick="checkAnswer(this, 'B')">B) Siemens</li>
+            <li onclick="checkAnswer(this, 'B')">C) Honeywell</li>
+            <li onclick="checkAnswer(this, 'B')">D) Amazon</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    <div class="question">
+        <p>21. Which model type is best suited for inventory optimization in IIoT?</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'D')">A) Predictive Maintenance</li>
+            <li onclick="checkAnswer(this, 'D')">B) Classification</li>
+            <li onclick="checkAnswer(this, 'D')">C) Regression</li>
+            <li onclick="checkAnswer(this, 'D')">D) Optimization Models</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>22. Which technology in IIoT enables companies to track equipment condition remotely?</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'B')">A) Virtual Reality</li>
+            <li onclick="checkAnswer(this, 'B')">B) Predictive Maintenance</li>
+            <li onclick="checkAnswer(this, 'B')">C) Marketing Analytics</li>
+            <li onclick="checkAnswer(this, 'B')">D) Encryption</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>23. IIoT cloud providers generally offer device management features such as:</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'C')">A) Device design only</li>
+            <li onclick="checkAnswer(this, 'C')">B) Only storage access</li>
+            <li onclick="checkAnswer(this, 'C')">C) Provisioning, fault diagnosis, and updates</li>
+            <li onclick="checkAnswer(this, 'C')">D) Regular monthly audits</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>24. The primary benefit of Fog Computing in IIoT is:</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'B')">A) Reducing reliance on edge computing</li>
+            <li onclick="checkAnswer(this, 'B')">B) Enabling local data processing close to data sources</li>
+            <li onclick="checkAnswer(this, 'B')">C) Centralizing all data in one location</li>
+            <li onclick="checkAnswer(this, 'B')">D) Slowing down data processing</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>25. Fog computing differs from cloud computing in that it:</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'B')">A) Operates with high latency</li>
+            <li onclick="checkAnswer(this, 'B')">B) Processes data near the data source</li>
+            <li onclick="checkAnswer(this, 'B')">C) Stores data only in a central location</li>
+            <li onclick="checkAnswer(this, 'B')">D) Requires human intervention</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>26. Service Level Agreements (SLAs) in IIoT are used to:</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'B')">A) Improve device design</li>
+            <li onclick="checkAnswer(this, 'B')">B) Set expectations for cloud service delivery</li>
+            <li onclick="checkAnswer(this, 'B')">C) Increase data storage capacity</li>
+            <li onclick="checkAnswer(this, 'B')">D) Eliminate device failures</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>27. A critical requirement for deep learning in IIoT is:</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'B')">A) Limited data sets</li>
+            <li onclick="checkAnswer(this, 'B')">B) High-quality and large amounts of labeled data</li>
+            <li onclick="checkAnswer(this, 'B')">C) Only unsupervised algorithms</li>
+            <li onclick="checkAnswer(this, 'B')">D) Minimal computational power</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>28. Which IIoT platform focuses on asset tracking and management?</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'C')">A) Predix</li>
+            <li onclick="checkAnswer(this, 'C')">B) MindSphere</li>
+            <li onclick="checkAnswer(this, 'C')">C) Meshify</li>
+            <li onclick="checkAnswer(this, 'C')">D) Amazon</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>29. C3 IoT provides a storage solution for unstructured data known as:</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'A')">A) Data Lake</li>
+            <li onclick="checkAnswer(this, 'A')">B) Hadoop Store</li>
+            <li onclick="checkAnswer(this, 'A')">C) Data Warehouse</li>
+            <li onclick="checkAnswer(this, 'A')">D) InfoCloud</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>30. The main benefit of batch processing in IIoT is:</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'C')">A) Low computational requirements</li>
+            <li onclick="checkAnswer(this, 'C')">B) Ability to handle real-time events</li>
+            <li onclick="checkAnswer(this, 'C')">C) Accuracy in long-term statistics</li>
+            <li onclick="checkAnswer(this, 'C')">D) Manual data collection</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>31. Which cloud service model allows clients to operate a virtual data center?</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'B')">A) SaaS</li>
+            <li onclick="checkAnswer(this, 'B')">B) IaaS</li>
+            <li onclick="checkAnswer(this, 'B')">C) PaaS</li>
+            <li onclick="checkAnswer(this, 'B')">D) Edge Computing</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>32. MindSphere’s “Digital Twin” feature is mainly used for:</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'B')">A) Human resource management</li>
+            <li onclick="checkAnswer(this, 'B')">B) Simulating and optimizing physical assets</li>
+            <li onclick="checkAnswer(this, 'B')">C) Email management</li>
+            <li onclick="checkAnswer(this, 'B')">D) Customer service</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>33. An industrial IIoT platform with strong security and ROI focus is:</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'B')">A) Consumer IoT platform</li>
+            <li onclick="checkAnswer(this, 'B')">B) Industrial IoT platform</li>
+            <li onclick="checkAnswer(this, 'B')">C) Social Media platform</li>
+            <li onclick="checkAnswer(this, 'B')">D) Private network</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>34. A key application of IIoT analytics in the supply chain is:</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'B')">A) Customer engagement</li>
+            <li onclick="checkAnswer(this, 'B')">B) Fleet management optimization</li>
+            <li onclick="checkAnswer(this, 'B')">C) Increased inventory</li>
+            <li onclick="checkAnswer(this, 'B')">D) Reduced data storage</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>35. The IIoT model building process involves:</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'B')">A) Data entry only</li>
+            <li onclick="checkAnswer(this, 'B')">B) Predictive model training and validation</li>
+            <li onclick="checkAnswer(this, 'B')">C) Manual device control</li>
+            <li onclick="checkAnswer(this, 'B')">D) Traditional logging</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>36. SLAs are crucial in IIoT because they:</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'B')">A) Define the roles of data scientists</li>
+            <li onclick="checkAnswer(this, 'B')">B) Specify cloud service delivery standards</li>
+            <li onclick="checkAnswer(this, 'B')">C) Limit the use of predictive models</li>
+            <li onclick="checkAnswer(this, 'B')">D) Decrease data accuracy</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>37. The purpose of a decentralized IIoT approach is to:</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'B')">A) Increase cloud dependency</li>
+            <li onclick="checkAnswer(this, 'B')">B) Distribute data processing closer to devices</li>
+            <li onclick="checkAnswer(this, 'B')">C) Reduce network security</li>
+            <li onclick="checkAnswer(this, 'B')">D) Eliminate edge computing</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>38. Fog nodes in IIoT perform functions such as:</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'B')">A) Data storage only</li>
+            <li onclick="checkAnswer(this, 'B')">B) Filtering, aggregation, and translation</li>
+            <li onclick="checkAnswer(this, 'B')">C) Physical device assembly</li>
+            <li onclick="checkAnswer(this, 'B')">D) Only cloud connectivity</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>39. Which IIoT model relies on consumer-driven innovation?</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'D')">A) SaaS</li>
+            <li onclick="checkAnswer(this, 'D')">B) B2B</li>
+            <li onclick="checkAnswer(this, 'D')">C) Industrial IIoT platforms</li>
+            <li onclick="checkAnswer(this, 'D')">D) Consumer IoT platforms</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>40. A common industrial use of AI-powered IIoT platforms like C3 IoT is:</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'B')">A) E-commerce optimization</li>
+            <li onclick="checkAnswer(this, 'B')">B) Predictive maintenance</li>
+            <li onclick="checkAnswer(this, 'B')">C) Media streaming</li>
+            <li onclick="checkAnswer(this, 'B')">D) Basic data entry</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+        
+    
+
+   
+    
+    
+    
+
+<<script>
+    function checkAnswer(selectedOption, correctAnswer) {
+        // Get the feedback container
+        const feedback = selectedOption.closest('.question').querySelector('.feedback');
+        // Get all options in the current question
+        const options = selectedOption.closest('ol').children;
+        
+        // Disable all options after selection
+        for (let option of options) {
+            option.style.pointerEvents = 'none';
+        }
+
+        // Check if the selected option is correct
+        if (selectedOption.innerText[0] === correctAnswer) {
+            selectedOption.style.backgroundColor = '#4CAF50'; // Correct answer (green)
+            feedback.innerHTML = "<span class='answer'>Correct!</span>";
+        } else {
+            selectedOption.style.backgroundColor = '#F44336'; // Incorrect answer (red)
+            feedback.innerHTML = `<span class='incorrect'>Incorrect! The correct answer is ${correctAnswer}.</span>`;
+            
+            // Highlight correct answer
+            for (let option of options) {
+                if (option.innerText[0] === correctAnswer) {
+                    option.style.backgroundColor = '#4CAF50'; // Correct option (green)
+                }
+            }
+        }
+    }
+</script>
+</body>
+</html>
