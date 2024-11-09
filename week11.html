@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f4f4f9;
+        }
+        .question {
+            margin-bottom: 20px;
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        p {
+            font-size: 1.1em;
+        }
+        ol {
+            padding-left: 20px;
+        }
+        li {
+            cursor: pointer;
+            margin: 8px 0;
+            padding: 10px;
+            background-color: #e6e6e6;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        li:hover {
+            background-color: #d0d0d0;
+        }
+        .answer {
+            font-weight: bold;
+            color: green;
+        }
+        .incorrect {
+            font-weight: bold;
+            color: red;
+        }
+        .feedback {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    
+    <div class="question">
+        <p>1. What challenge does IIoT address in healthcare?</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'B')">A) Reducing manual check-ups</li>
+            <li onclick="checkAnswer(this, 'B')">B) Improving remote patient monitoring</li>
+            <li onclick="checkAnswer(this, 'B')">C) Lowering energy consumption</li>
+            <li onclick="checkAnswer(this, 'B')">D) Increasing hospital admissions</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>2. Which condition can IIoT-based glucose monitors help manage?</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'B')">A) Hypertension</li>
+            <li onclick="checkAnswer(this, 'B')">B) Diabetes</li>
+            <li onclick="checkAnswer(this, 'B')">C) Asthma</li>
+            <li onclick="checkAnswer(this, 'B')">D) Arthritis</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>3. The IIoT-based device QardioCore is used for monitoring:</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'B')">A) Blood pressure</li>
+            <li onclick="checkAnswer(this, 'B')">B) ECG</li>
+            <li onclick="checkAnswer(this, 'B')">C) Body temperature</li>
+            <li onclick="checkAnswer(this, 'B')">D) Oxygen levels</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>4. What type of IoT sensor measures skin temperature continuously?</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'C')">A) Glucose sensor</li>
+            <li onclick="checkAnswer(this, 'C')">B) Pulse oximeter</li>
+            <li onclick="checkAnswer(this, 'C')">C) Temperature sensor</li>
+            <li onclick="checkAnswer(this, 'C')">D) Blood pressure monitor</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>5. Which company developed Dexcom for glucose monitoring?</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'C')">A) Apple</li>
+            <li onclick="checkAnswer(this, 'C')">B) Philips</li>
+            <li onclick="checkAnswer(this, 'C')">C) Dexcom</li>
+            <li onclick="checkAnswer(this, 'C')">D) Qardio</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>6. What does a smart contact lens monitor using tears?</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'C')">A) Temperature</li>
+            <li onclick="checkAnswer(this, 'C')">B) Blood pressure</li>
+            <li onclick="checkAnswer(this, 'C')">C) Glucose levels</li>
+            <li onclick="checkAnswer(this, 'C')">D) Respiratory rate</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>7. IIoT-based smart inhalers help manage:</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'B')">A) Heart disease</li>
+            <li onclick="checkAnswer(this, 'B')">B) Asthma</li>
+            <li onclick="checkAnswer(this, 'B')">C) Diabetes</li>
+            <li onclick="checkAnswer(this, 'B')">D) Hypertension</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>8. What is a primary benefit of IIoT in power plants?</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'A')">A) Reduced downtime</li>
+            <li onclick="checkAnswer(this, 'A')">B) Manual monitoring only</li>
+            <li onclick="checkAnswer(this, 'A')">C) Increased employee presence</li>
+            <li onclick="checkAnswer(this, 'A')">D) Limited resource usage</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>9. Smart grids in IIoT-enabled power systems primarily aim to:</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'B')">A) Increase power usage</li>
+            <li onclick="checkAnswer(this, 'B')">B) Improve efficiency and reduce manpower</li>
+            <li onclick="checkAnswer(this, 'B')">C) Limit resource optimization</li>
+            <li onclick="checkAnswer(this, 'B')">D) Decrease connectivity</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>10. Which technology is used in power plants for energy monitoring and remote control?</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'A')">A) Supervisory Control and Data Acquisition (SCADA)</li>
+            <li onclick="checkAnswer(this, 'A')">B) Local computing</li>
+            <li onclick="checkAnswer(this, 'A')">C) In-person inspections</li>
+            <li onclick="checkAnswer(this, 'A')">D) Social media apps</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>11. Smart metering in power plants helps to:</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'B')">A) Increase operational costs</li>
+            <li onclick="checkAnswer(this, 'B')">B) Reduce energy loss</li>
+            <li onclick="checkAnswer(this, 'B')">C) Limit data tracking</li>
+            <li onclick="checkAnswer(this, 'B')">D) Increase manual inspections</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>12. Which IIoT feature helps identify leaks in water systems?</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'B')">A) Manual checks</li>
+            <li onclick="checkAnswer(this, 'B')">B) Smart water monitoring</li>
+            <li onclick="checkAnswer(this, 'B')">C) Temperature monitoring</li>
+            <li onclick="checkAnswer(this, 'B')">D) Low-resolution sensors</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>13. The primary purpose of using digital twins in power plants is to:</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'B')">A) Increase data redundancy</li>
+            <li onclick="checkAnswer(this, 'B')">B) Reduce fuel and energy consumption</li>
+            <li onclick="checkAnswer(this, 'B')">C) Increase manual labor</li>
+            <li onclick="checkAnswer(this, 'B')">D) Improve traditional methods</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>14. What does RFID stand for in inventory management?</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'B')">A) Real Field Identity Data</li>
+            <li onclick="checkAnswer(this, 'B')">B) Radio Frequency Identification</li>
+            <li onclick="checkAnswer(this, 'B')">C) Real Facility Information Data</li>
+            <li onclick="checkAnswer(this, 'B')">D) Resource Free Identification</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>15. Active RFID tags differ from passive ones because they:</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'B')">A) Have a shorter range</li>
+            <li onclick="checkAnswer(this, 'B')">B) Are battery-powered</li>
+            <li onclick="checkAnswer(this, 'B')">C) Use manual scanning</li>
+            <li onclick="checkAnswer(this, 'B')">D) Lack memory storage</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>16. Inventory management in IIoT involves monitoring:</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'B')">A) Only production</li>
+            <li onclick="checkAnswer(this, 'B')">B) Entire supply chains and storage</li>
+            <li onclick="checkAnswer(this, 'B')">C) Local sales data</li>
+            <li onclick="checkAnswer(this, 'B')">D) Manual stock counts</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>17. What is a primary function of quality control in inventory management?</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'B')">A) Limit data collection</li>
+            <li onclick="checkAnswer(this, 'B')">B) Routine checks for inventory quality</li>
+            <li onclick="checkAnswer(this, 'B')">C) Reducing customer engagement</li>
+            <li onclick="checkAnswer(this, 'B')">D) Ignoring product standards</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>18. Which type of RFID tag is more compact and less expensive?</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'A')">A) Passive</li>
+            <li onclick="checkAnswer(this, 'A')">B) Active</li>
+            <li onclick="checkAnswer(this, 'A')">C) Semi-active</li>
+            <li onclick="checkAnswer(this, 'A')">D) Signal-only</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>19. What advantage does RFID offer over traditional barcodes?</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'B')">A) Requires line of sight</li>
+            <li onclick="checkAnswer(this, 'B')">B) Holds more information</li>
+            <li onclick="checkAnswer(this, 'B')">C) Limited scanning capability</li>
+            <li onclick="checkAnswer(this, 'B')">D) Needs manual handling</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>20. A primary goal of plant security is to:</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'B')">A) Limit technological advancements</li>
+            <li onclick="checkAnswer(this, 'B')">B) Protect human and plant resources</li>
+            <li onclick="checkAnswer(this, 'B')">C) Increase unauthorized access</li>
+            <li onclick="checkAnswer(this, 'B')">D) Maintain low security costs</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    <div class="question">
+        <p>21. In security, authentication ensures:</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'B')">A) Data is accessible by anyone</li>
+            <li onclick="checkAnswer(this, 'B')">B) User identities are verified</li>
+            <li onclick="checkAnswer(this, 'B')">C) Data is altered frequently</li>
+            <li onclick="checkAnswer(this, 'B')">D) Unauthorized access is allowed</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>22. In network security, firewalls serve as:</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'B')">A) Data storage units</li>
+            <li onclick="checkAnswer(this, 'B')">B) A barrier between internal and external networks</li>
+            <li onclick="checkAnswer(this, 'B')">C) Sensors for temperature monitoring</li>
+            <li onclick="checkAnswer(this, 'B')">D) Direct network controls</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>23. What does SCADA stand for?</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'B')">A) Secure Communication and Data Access</li>
+            <li onclick="checkAnswer(this, 'B')">B) Supervisory Control and Data Acquisition</li>
+            <li onclick="checkAnswer(this, 'B')">C) Sensor Control and Data Analysis</li>
+            <li onclick="checkAnswer(this, 'B')">D) Systematic Collection of Analytics Data</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>24. What is a Virtual Private Network (VPN) used for in IIoT?</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'B')">A) Restricting access</li>
+            <li onclick="checkAnswer(this, 'B')">B) Encrypting connections for security</li>
+            <li onclick="checkAnswer(this, 'B')">C) Limiting data transfer</li>
+            <li onclick="checkAnswer(this, 'B')">D) Lowering data quality</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>25. What is the purpose of endpoint security in device security?</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'B')">A) Enhancing network flow</li>
+            <li onclick="checkAnswer(this, 'B')">B) Protecting mobile devices accessing networks</li>
+            <li onclick="checkAnswer(this, 'B')">C) Limiting VPN connections</li>
+            <li onclick="checkAnswer(this, 'B')">D) Increasing data redundancy</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>26. Facility management involves:</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'A')">A) Building maintenance and operations</li>
+            <li onclick="checkAnswer(this, 'A')">B) Only finance tracking</li>
+            <li onclick="checkAnswer(this, 'A')">C) Eliminating HVAC systems</li>
+            <li onclick="checkAnswer(this, 'A')">D) Limiting workplace improvements</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>27. IoT in facility management enhances:</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'B')">A) Manual inspections</li>
+            <li onclick="checkAnswer(this, 'B')">B) Operational efficiency through connected devices</li>
+            <li onclick="checkAnswer(this, 'B')">C) Data redundancy</li>
+            <li onclick="checkAnswer(this, 'B')">D) Energy wastage</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>28. Smart meters in facility management are primarily used to:</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'B')">A) Track customer satisfaction</li>
+            <li onclick="checkAnswer(this, 'B')">B) Manage electricity usage</li>
+            <li onclick="checkAnswer(this, 'B')">C) Measure water quality</li>
+            <li onclick="checkAnswer(this, 'B')">D) Control product inventory</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>29. The purpose of HVAC IoT integration is to:</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'B')">A) Increase costs</li>
+            <li onclick="checkAnswer(this, 'B')">B) Improve efficiency and control</li>
+            <li onclick="checkAnswer(this, 'B')">C) Decrease comfort</li>
+            <li onclick="checkAnswer(this, 'B')">D) Limit remote operation</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>30. What type of alert system does IoT use in facility management for emergencies?</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'B')">A) Email notifications</li>
+            <li onclick="checkAnswer(this, 'B')">B) Real-time alarms and sensors</li>
+            <li onclick="checkAnswer(this, 'B')">C) Printed notices</li>
+            <li onclick="checkAnswer(this, 'B')">D) Manual supervision</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>31. An example of a support service in facility management is:</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'B')">A) Inventory listing</li>
+            <li onclick="checkAnswer(this, 'B')">B) Human Resources</li>
+            <li onclick="checkAnswer(this, 'B')">C) Product sales</li>
+            <li onclick="checkAnswer(this, 'B')">D) Manual data entries</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>32. IoT-enabled smart lighting aims to:</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'C')">A) Limit facility energy savings</li>
+            <li onclick="checkAnswer(this, 'C')">B) Increase energy consumption</li>
+            <li onclick="checkAnswer(this, 'C')">C) Improve energy efficiency</li>
+            <li onclick="checkAnswer(this, 'C')">D) Decrease lighting quality</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>33. What aspect of IoT in facility management reduces energy wastage?</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'B')">A) Manual power controls</li>
+            <li onclick="checkAnswer(this, 'B')">B) Real-time energy monitoring</li>
+            <li onclick="checkAnswer(this, 'B')">C) Limitless power usage</li>
+            <li onclick="checkAnswer(this, 'B')">D) Reduced data collection</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    
+    
+
+   
+    
+    
+    
+
+<<script>
+    function checkAnswer(selectedOption, correctAnswer) {
+        // Get the feedback container
+        const feedback = selectedOption.closest('.question').querySelector('.feedback');
+        // Get all options in the current question
+        const options = selectedOption.closest('ol').children;
+        
+        // Disable all options after selection
+        for (let option of options) {
+            option.style.pointerEvents = 'none';
+        }
+
+        // Check if the selected option is correct
+        if (selectedOption.innerText[0] === correctAnswer) {
+            selectedOption.style.backgroundColor = '#4CAF50'; // Correct answer (green)
+            feedback.innerHTML = "<span class='answer'>Correct!</span>";
+        } else {
+            selectedOption.style.backgroundColor = '#F44336'; // Incorrect answer (red)
+            feedback.innerHTML = `<span class='incorrect'>Incorrect! The correct answer is ${correctAnswer}.</span>`;
+            
+            // Highlight correct answer
+            for (let option of options) {
+                if (option.innerText[0] === correctAnswer) {
+                    option.style.backgroundColor = '#4CAF50'; // Correct option (green)
+                }
+            }
+        }
+    }
+</script>
+</body>
+</html>
