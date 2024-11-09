@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f4f4f9;
+        }
+        .question {
+            margin-bottom: 20px;
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        p {
+            font-size: 1.1em;
+        }
+        ol {
+            padding-left: 20px;
+        }
+        li {
+            cursor: pointer;
+            margin: 8px 0;
+            padding: 10px;
+            background-color: #e6e6e6;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        li:hover {
+            background-color: #d0d0d0;
+        }
+        .answer {
+            font-weight: bold;
+            color: green;
+        }
+        .incorrect {
+            font-weight: bold;
+            color: red;
+        }
+        .feedback {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    
+    <div class="question">
+        <p>1. What does SDN stand for?</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'B')">A) Software-Driven Network</li>
+            <li onclick="checkAnswer(this, 'B')">B) Software-Defined Networking</li>
+            <li onclick="checkAnswer(this, 'B')">C) System-Defined Network</li>
+            <li onclick="checkAnswer(this, 'B')">D) Solution-Driven Network</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>2. Which feature differentiates SDN from traditional networking?</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'A')">A) Decoupling of control and data planes</li>
+            <li onclick="checkAnswer(this, 'A')">B) Increased hardware complexity</li>
+            <li onclick="checkAnswer(this, 'A')">C) Reduced software flexibility</li>
+            <li onclick="checkAnswer(this, 'A')">D) Centralized data plane</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>3. What is the primary protocol used in SDN for communication between the controller and forwarding devices?</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'C')">A) HTTP</li>
+            <li onclick="checkAnswer(this, 'C')">B) TCP/IP</li>
+            <li onclick="checkAnswer(this, 'C')">C) OpenFlow</li>
+            <li onclick="checkAnswer(this, 'C')">D) FTP</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>4. Which component is responsible for setting up flow rules in SDN?</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'B')">A) Router</li>
+            <li onclick="checkAnswer(this, 'B')">B) SDN Controller</li>
+            <li onclick="checkAnswer(this, 'B')">C) Switch</li>
+            <li onclick="checkAnswer(this, 'B')">D) Firewall</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>5. In SDN, what is the purpose of the control plane?</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'B')">A) Handling user authentication</li>
+            <li onclick="checkAnswer(this, 'B')">B) Configuring forwarding rules and network management</li>
+            <li onclick="checkAnswer(this, 'B')">C) Transmitting data packets</li>
+            <li onclick="checkAnswer(this, 'B')">D) Storing data</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>6. What is "rule placement" in the context of SDN?</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'B')">A) Placing rules on firewall settings</li>
+            <li onclick="checkAnswer(this, 'B')">B) Storing control rules in memory for packet forwarding</li>
+            <li onclick="checkAnswer(this, 'B')">C) Defining user access levels</li>
+            <li onclick="checkAnswer(this, 'B')">D) Installing software on network nodes</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>7. What is a challenge related to rule placement in SDN?</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'B')">A) High hardware costs</li>
+            <li onclick="checkAnswer(this, 'B')">B) Limited TCAM memory for flow rules</li>
+            <li onclick="checkAnswer(this, 'B')">C) Difficulty in packet transmission</li>
+            <li onclick="checkAnswer(this, 'B')">D) Complex rule encoding</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>8. What does TCAM stand for?</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'A')">A) Ternary Content Addressable Memory</li>
+            <li onclick="checkAnswer(this, 'A')">B) Transitory Command Address Mechanism</li>
+            <li onclick="checkAnswer(this, 'A')">C) Timing Control and Management</li>
+            <li onclick="checkAnswer(this, 'A')">D) Total Command Application Memory</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>9. In SDN, controller placement refers to:</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'B')">A) Physical placement of cables</li>
+            <li onclick="checkAnswer(this, 'B')">B) Optimizing controller locations for performance and redundancy</li>
+            <li onclick="checkAnswer(this, 'B')">C) Storing data on local servers</li>
+            <li onclick="checkAnswer(this, 'B')">D) Configuring software applications</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>10. A core advantage of SDN in IIoT is:</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'C')">A) Increased hardware cost</li>
+            <li onclick="checkAnswer(this, 'C')">B) Limited network visibility</li>
+            <li onclick="checkAnswer(this, 'C')">C) Centralized network management and security</li>
+            <li onclick="checkAnswer(this, 'C')">D) High energy consumption</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>11. In SDN, fault-tolerance can be achieved by:</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'B')">A) Installing multiple routers</li>
+            <li onclick="checkAnswer(this, 'B')">B) Using backup controllers</li>
+            <li onclick="checkAnswer(this, 'B')">C) Adding more switches</li>
+            <li onclick="checkAnswer(this, 'B')">D) Limiting data flow</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>12. Which SDN aspect provides protection against DoS attacks?</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'A')">A) Flow-based forwarding</li>
+            <li onclick="checkAnswer(this, 'A')">B) Edge routers</li>
+            <li onclick="checkAnswer(this, 'A')">C) Hardware firewalls</li>
+            <li onclick="checkAnswer(this, 'A')">D) Distributed storage</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>13. Which network protocol is typically used to secure communication between the SDN controller and devices?</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'C')">A) UDP</li>
+            <li onclick="checkAnswer(this, 'C')">B) HTTP</li>
+            <li onclick="checkAnswer(this, 'C')">C) TCP with TLS</li>
+            <li onclick="checkAnswer(this, 'C')">D) SNMP</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>14. The concept of "network segmentation" in SDN is used to:</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'B')">A) Block specific data packets</li>
+            <li onclick="checkAnswer(this, 'B')">B) Separate control and data flows for better performance</li>
+            <li onclick="checkAnswer(this, 'B')">C) Increase network latency</li>
+            <li onclick="checkAnswer(this, 'B')">D) Reduce memory usage</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>15. What role does the SDN controller play in traffic engineering?</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'B')">A) Storing user profiles</li>
+            <li onclick="checkAnswer(this, 'B')">B) Optimizing data flow and managing network paths</li>
+            <li onclick="checkAnswer(this, 'B')">C) Increasing energy efficiency</li>
+            <li onclick="checkAnswer(this, 'B')">D) Enforcing static routes only</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>16. Which of the following is an SDN application in IIoT?</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'B')">A) Data encryption only</li>
+            <li onclick="checkAnswer(this, 'B')">B) Network segmentation for device control</li>
+            <li onclick="checkAnswer(this, 'B')">C) Human-based management</li>
+            <li onclick="checkAnswer(this, 'B')">D) Solely software updates</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>17. What does SDIIoT stand for?</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'C')">A) Software-Defined Internet of Industry Technology</li>
+            <li onclick="checkAnswer(this, 'C')">B) Software-Driven Industrial Internet of Things</li>
+            <li onclick="checkAnswer(this, 'C')">C) Software-Defined Industrial Internet of Things</li>
+            <li onclick="checkAnswer(this, 'C')">D) Structured Data in Industrial IoT</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>18. A core benefit of SDIIoT is:</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'C')">A) Reduced software compatibility</li>
+            <li onclick="checkAnswer(this, 'C')">B) High-latency network interactions</li>
+            <li onclick="checkAnswer(this, 'C')">C) Policy-based data forwarding</li>
+            <li onclick="checkAnswer(this, 'C')">D) Higher dependency on physical components</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>19. What is the function of a Job Tracker in Hadoop?</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'A')">A) Assigning tasks to nodes and managing progress</li>
+            <li onclick="checkAnswer(this, 'A')">B) Monitoring physical storage locations</li>
+            <li onclick="checkAnswer(this, 'A')">C) Analyzing packet flow data</li>
+            <li onclick="checkAnswer(this, 'A')">D) Compressing large files</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>20. What is the role of the Name Node in Hadoop?</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'A')">A) Storing and managing filesystem metadata</li>
+            <li onclick="checkAnswer(this, 'A')">B) Processing data packets</li>
+            <li onclick="checkAnswer(this, 'A')">C) Forwarding control data</li>
+            <li onclick="checkAnswer(this, 'A')">D) Securing network access</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    <div class="question">
+        <p>21. In Hadoop, which node stores the actual data blocks?</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'C')">A) Metadata Node</li>
+            <li onclick="checkAnswer(this, 'C')">B) Task Tracker</li>
+            <li onclick="checkAnswer(this, 'C')">C) Data Node</li>
+            <li onclick="checkAnswer(this, 'C')">D) File Server</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>22. A benefit of using BCube architecture in data centers is:</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'B')">A) Switch-oriented design</li>
+            <li onclick="checkAnswer(this, 'B')">B) Multiple parallel paths between servers</li>
+            <li onclick="checkAnswer(this, 'B')">C) Limited fault tolerance</li>
+            <li onclick="checkAnswer(this, 'B')">D) Higher dependency on individual routers</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>23. In SDN, which component is responsible for rule-based forwarding?</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'B')">A) API</li>
+            <li onclick="checkAnswer(this, 'B')">B) Flow Table</li>
+            <li onclick="checkAnswer(this, 'B')">C) DNS Server</li>
+            <li onclick="checkAnswer(this, 'B')">D) Middleware</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>24. Fat-Tree DCN topology is commonly used in data centers due to its:</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'B')">A) Low fault tolerance</li>
+            <li onclick="checkAnswer(this, 'B')">B) High scalability and redundancy</li>
+            <li onclick="checkAnswer(this, 'B')">C) Minimal data flow</li>
+            <li onclick="checkAnswer(this, 'B')">D) Static routing</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>25. What is a main challenge of data center networks in IIoT?</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'B')">A) Redundant storage</li>
+            <li onclick="checkAnswer(this, 'B')">B) High energy consumption</li>
+            <li onclick="checkAnswer(this, 'B')">C) Limited data flow</li>
+            <li onclick="checkAnswer(this, 'B')">D) Poor fault tolerance</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>26. The SDN concept of "rule-based forwarding" helps prevent:</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'A')">A) DoS attacks</li>
+            <li onclick="checkAnswer(this, 'A')">B) Packet loss</li>
+            <li onclick="checkAnswer(this, 'A')">C) Network congestion</li>
+            <li onclick="checkAnswer(this, 'A')">D) Device overheating</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>27. Which network topology in data centers uses a multi-rooted tree structure?</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'B')">A) DCell</li>
+            <li onclick="checkAnswer(this, 'B')">B) Fat-Tree</li>
+            <li onclick="checkAnswer(this, 'B')">C) BCube</li>
+            <li onclick="checkAnswer(this, 'B')">D) Ring</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>28. In SDN, dynamic access control can be used for:</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'B')">A) Assigning static IPs</li>
+            <li onclick="checkAnswer(this, 'B')">B) Remote user management</li>
+            <li onclick="checkAnswer(this, 'B')">C) Real-time load balancing</li>
+            <li onclick="checkAnswer(this, 'B')">D) Limiting network devices</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>29. The main advantage of SDN's centralized control is:</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'C')">A) Limited network visibility</li>
+            <li onclick="checkAnswer(this, 'C')">B) Higher hardware requirements</li>
+            <li onclick="checkAnswer(this, 'C')">C) Simplified network management and security</li>
+            <li onclick="checkAnswer(this, 'C')">D) Increased network latency</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>30. SDIIoT is particularly useful in which industrial application?</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'B')">A) Human resources management</li>
+            <li onclick="checkAnswer(this, 'B')">B) Real-time monitoring of industrial equipment</li>
+            <li onclick="checkAnswer(this, 'B')">C) Retail inventory</li>
+            <li onclick="checkAnswer(this, 'B')">D) Social media analysis</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>31. BCube topology in data centers is advantageous for:</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'B')">A) Device control only</li>
+            <li onclick="checkAnswer(this, 'B')">B) Enhanced fault tolerance and multiple parallel paths</li>
+            <li onclick="checkAnswer(this, 'B')">C) Reduced data transfer speeds</li>
+            <li onclick="checkAnswer(this, 'B')">D) Limited connectivity options</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>32. What is a function of Network Virtualization in Software-Defined Data Centers?</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'B')">A) Reducing network scalability</li>
+            <li onclick="checkAnswer(this, 'B')">B) Allowing flexible and virtual network resources</li>
+            <li onclick="checkAnswer(this, 'B')">C) Limiting server access</li>
+            <li onclick="checkAnswer(this, 'B')">D) Increasing hardware reliance</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>33. The Fat-Tree topology is designed to improve:</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'B')">A) Static data flow</li>
+            <li onclick="checkAnswer(this, 'B')">B) Scalability and redundancy</li>
+            <li onclick="checkAnswer(this, 'B')">C) Data center power consumption</li>
+            <li onclick="checkAnswer(this, 'B')">D) Packet loss</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>34. Which type of virtualization involves separating server resources?</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'D')">A) Network Virtualization</li>
+            <li onclick="checkAnswer(this, 'D')">B) Storage Virtualization</li>
+            <li onclick="checkAnswer(this, 'D')">C) Software Virtualization</li>
+            <li onclick="checkAnswer(this, 'D')">D) Server Virtualization</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>35. Software-Defined Data Centers (SDDC) provide flexibility by:</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'B')">A) Restricting virtualization</li>
+            <li onclick="checkAnswer(this, 'B')">B) Decoupling hardware and software layers</li>
+            <li onclick="checkAnswer(this, 'B')">C) Reducing data center scalability</li>
+            <li onclick="checkAnswer(this, 'B')">D) Increasing hardware reliance</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>36. What challenge does Software-Defined IIoT (SDIIoT) address?</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'B')">A) Managing large physical storage</li>
+            <li onclick="checkAnswer(this, 'B')">B) Simplifying network segmentation and control</li>
+            <li onclick="checkAnswer(this, 'B')">C) Reducing real-time data needs</li>
+            <li onclick="checkAnswer(this, 'B')">D) Increasing static routes</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>37. Which element in SDN applications provides mobility management?</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'B')">A) Middleware</li>
+            <li onclick="checkAnswer(this, 'B')">B) SDN Controller</li>
+            <li onclick="checkAnswer(this, 'B')">C) API</li>
+            <li onclick="checkAnswer(this, 'B')">D) Rule Table</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>38. Software-Defined Network controllers enable:</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'B')">A) Static packet routing</li>
+            <li onclick="checkAnswer(this, 'B')">B) Centralized and dynamic network management</li>
+            <li onclick="checkAnswer(this, 'B')">C) Decreased network scalability</li>
+            <li onclick="checkAnswer(this, 'B')">D) Reduced software dependency</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>39. In SDN, "rule-based forwarding" is enabled by:</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'B')">A) Network firewalls</li>
+            <li onclick="checkAnswer(this, 'B')">B) Flow Tables</li>
+            <li onclick="checkAnswer(this, 'B')">C) Centralized storage</li>
+            <li onclick="checkAnswer(this, 'B')">D) Security policies</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>40. What is the primary use of flow rules in SDN?</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'B')">A) Managing data encryption</li>
+            <li onclick="checkAnswer(this, 'B')">B) Deciding packet forwarding paths</li>
+            <li onclick="checkAnswer(this, 'B')">C) Setting firewall parameters</li>
+            <li onclick="checkAnswer(this, 'B')">D) Establishing static IP addresses</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+
+   
+    
+    
+    
+
+<<script>
+    function checkAnswer(selectedOption, correctAnswer) {
+        // Get the feedback container
+        const feedback = selectedOption.closest('.question').querySelector('.feedback');
+        // Get all options in the current question
+        const options = selectedOption.closest('ol').children;
+        
+        // Disable all options after selection
+        for (let option of options) {
+            option.style.pointerEvents = 'none';
+        }
+
+        // Check if the selected option is correct
+        if (selectedOption.innerText[0] === correctAnswer) {
+            selectedOption.style.backgroundColor = '#4CAF50'; // Correct answer (green)
+            feedback.innerHTML = "<span class='answer'>Correct!</span>";
+        } else {
+            selectedOption.style.backgroundColor = '#F44336'; // Incorrect answer (red)
+            feedback.innerHTML = `<span class='incorrect'>Incorrect! The correct answer is ${correctAnswer}.</span>`;
+            
+            // Highlight correct answer
+            for (let option of options) {
+                if (option.innerText[0] === correctAnswer) {
+                    option.style.backgroundColor = '#4CAF50'; // Correct option (green)
+                }
+            }
+        }
+    }
+</script>
+</body>
+</html>
