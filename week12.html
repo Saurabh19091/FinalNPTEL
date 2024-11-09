@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f4f4f9;
+        }
+        .question {
+            margin-bottom: 20px;
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        p {
+            font-size: 1.1em;
+        }
+        ol {
+            padding-left: 20px;
+        }
+        li {
+            cursor: pointer;
+            margin: 8px 0;
+            padding: 10px;
+            background-color: #e6e6e6;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        li:hover {
+            background-color: #d0d0d0;
+        }
+        .answer {
+            font-weight: bold;
+            color: green;
+        }
+        .incorrect {
+            font-weight: bold;
+            color: red;
+        }
+        .feedback {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    
+    <div class="question">
+        <p>1. Which industry benefits significantly from integrating IoT for business transformation?</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'C')">a) Automotive</li>
+            <li onclick="checkAnswer(this, 'C')">b) Healthcare</li>
+            <li onclick="checkAnswer(this, 'C')">c) Oil and Gas</li>
+            <li onclick="checkAnswer(this, 'C')">d) Retail</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>2. What is a primary value of IoT in the Oil and Gas industry?</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'B')">a) Customer relationship management</li>
+            <li onclick="checkAnswer(this, 'B')">b) Information creation</li>
+            <li onclick="checkAnswer(this, 'B')">c) Inventory management</li>
+            <li onclick="checkAnswer(this, 'B')">d) Employee tracking</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>3. Which of these is NOT part of the Oil and Gas industry workflow in IoT?</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'C')">a) Cloud-based analytics</li>
+            <li onclick="checkAnswer(this, 'C')">b) Data transformation</li>
+            <li onclick="checkAnswer(this, 'C')">c) Vehicle monitoring</li>
+            <li onclick="checkAnswer(this, 'C')">d) Predictive analytics</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>4. In which industry does IoT help with predictive maintenance, location intelligence, and pipeline monitoring?</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'C')">a) Chemical</li>
+            <li onclick="checkAnswer(this, 'C')">b) Pharmaceutical</li>
+            <li onclick="checkAnswer(this, 'C')">c) Oil and Gas</li>
+            <li onclick="checkAnswer(this, 'C')">d) Food</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>5. Which technology is crucial for real-time machine monitoring in IoT applications?</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'B')">a) 3D printing</li>
+            <li onclick="checkAnswer(this, 'B')">b) Machine learning</li>
+            <li onclick="checkAnswer(this, 'B')">c) Blockchain</li>
+            <li onclick="checkAnswer(this, 'B')">d) Augmented reality</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>6. IoT improves customer loyalty by connecting businesses with:</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'D')">a) Suppliers</li>
+            <li onclick="checkAnswer(this, 'D')">b) Competitors</li>
+            <li onclick="checkAnswer(this, 'D')">c) Machines</li>
+            <li onclick="checkAnswer(this, 'D')">d) Customers' cars</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>7. Which benefit is provided by IoT in the Oil and Gas industry?</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'B')">a) Increase in labor costs</li>
+            <li onclick="checkAnswer(this, 'B')">b) Improvement in asset maintenance</li>
+            <li onclick="checkAnswer(this, 'B')">c) More expensive operations</li>
+            <li onclick="checkAnswer(this, 'B')">d) Reduced safety</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>8. In the Chemical industry, IoT is used to reduce:</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'C')">a) Employee salaries</li>
+            <li onclick="checkAnswer(this, 'C')">b) Customer satisfaction</li>
+            <li onclick="checkAnswer(this, 'C')">c) Energy expenses</li>
+            <li onclick="checkAnswer(this, 'C')">d) Number of employees</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>9. Predictive maintenance in the chemical industry helps reduce:</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'B')">a) Equipment usage</li>
+            <li onclick="checkAnswer(this, 'B')">b) Equipment breakdown</li>
+            <li onclick="checkAnswer(this, 'B')">c) Customer issues</li>
+            <li onclick="checkAnswer(this, 'B')">d) Employee fatigue</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>10. Condition-based monitoring in agriculture can predict:</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'C')">a) Future sales</li>
+            <li onclick="checkAnswer(this, 'C')">b) Equipment breakdown</li>
+            <li onclick="checkAnswer(this, 'C')">c) Quality issues</li>
+            <li onclick="checkAnswer(this, 'C')">d) Job performance</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>11. What technology does IoT use in warehousing to track product location?</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'B')">a) AI</li>
+            <li onclick="checkAnswer(this, 'B')">b) RFID tags</li>
+            <li onclick="checkAnswer(this, 'B')">c) Blockchain</li>
+            <li onclick="checkAnswer(this, 'B')">d) 3D imaging</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>12. IoT reduces chemical industry expenses by optimizing:</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'C')">a) Workforce training</li>
+            <li onclick="checkAnswer(this, 'C')">b) Product costs</li>
+            <li onclick="checkAnswer(this, 'C')">c) Supply chain risks</li>
+            <li onclick="checkAnswer(this, 'C')">d) Customer feedback</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>13. Which type of IoT device is deployed in pharmaceutical production areas?</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'B')">a) AI chatbots</li>
+            <li onclick="checkAnswer(this, 'B')">b) Sensors</li>
+            <li onclick="checkAnswer(this, 'B')">c) GPS trackers</li>
+            <li onclick="checkAnswer(this, 'B')">d) Smart thermostats</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>14. IoT can detect adverse drug reactions through:</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'D')">a) Physical testing</li>
+            <li onclick="checkAnswer(this, 'D')">b) Drug analysis</li>
+            <li onclick="checkAnswer(this, 'D')">c) Online surveys</li>
+            <li onclick="checkAnswer(this, 'D')">d) Real-time data monitoring</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>15. What is a key application of IoT in logistics for pharmaceuticals?</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'C')">a) Drone operation</li>
+            <li onclick="checkAnswer(this, 'C')">b) Patient monitoring</li>
+            <li onclick="checkAnswer(this, 'C')">c) Routing optimization</li>
+            <li onclick="checkAnswer(this, 'C')">d) Prescription management</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>16. Which generation of UAV technology has full airspace awareness?</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'D')">a) Third</li>
+            <li onclick="checkAnswer(this, 'D')">b) Fourth</li>
+            <li onclick="checkAnswer(this, 'D')">c) Sixth</li>
+            <li onclick="checkAnswer(this, 'D')">d) Seventh</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>17. UAVs in agriculture help in:</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'A')">a) Optimizing fertilizer use</li>
+            <li onclick="checkAnswer(this, 'A')">b) Employee scheduling</li>
+            <li onclick="checkAnswer(this, 'A')">c) Real estate appraisal</li>
+            <li onclick="checkAnswer(this, 'A')">d) Customer relationship management</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>18. UAVs at construction sites assist with:</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'B')">a) Video conferencing</li>
+            <li onclick="checkAnswer(this, 'B')">b) Remote surveys</li>
+            <li onclick="checkAnswer(this, 'B')">c) Telemedicine</li>
+            <li onclick="checkAnswer(this, 'B')">d) Worker safety assessments</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>19. Which field uses UAVs for observing miles of transmission lines in one flight?</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'B')">a) Oil and Gas</li>
+            <li onclick="checkAnswer(this, 'B')">b) Energy management</li>
+            <li onclick="checkAnswer(this, 'B')">c) Telecommunications</li>
+            <li onclick="checkAnswer(this, 'B')">d) Manufacturing</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>20. UAVs improve mining operations by:</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'C')">a) Enhancing staff productivity</li>
+            <li onclick="checkAnswer(this, 'C')">b) Automating sales processes</li>
+            <li onclick="checkAnswer(this, 'C')">c) Performing stockpile management</li>
+            <li onclick="checkAnswer(this, 'C')">d) Reducing electricity usage</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    <div class="question">
+        <p>21. UAVs in healthcare are being researched to assist:</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'B')">a) Hospitals only</li>
+            <li onclick="checkAnswer(this, 'B')">b) The elderly</li>
+            <li onclick="checkAnswer(this, 'B')">c) Emergency rooms only</li>
+            <li onclick="checkAnswer(this, 'B')">d) Pharmacists</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>22. UAVs assist in monitoring which of these telecommunications assets?</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'B')">a) Groundwater levels</li>
+            <li onclick="checkAnswer(this, 'B')">b) Tower stability</li>
+            <li onclick="checkAnswer(this, 'B')">c) Warehouse shelves</li>
+            <li onclick="checkAnswer(this, 'B')">d) IoT devices</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>23. UAVs collect data for pipeline monitoring to detect:</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'C')">a) Water quality</li>
+            <li onclick="checkAnswer(this, 'C')">b) Fuel type</li>
+            <li onclick="checkAnswer(this, 'C')">c) Oil leaks</li>
+            <li onclick="checkAnswer(this, 'C')">d) Network outages</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>24. UAVs in warehousing are used primarily for:</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'B')">a) Data entry</li>
+            <li onclick="checkAnswer(this, 'B')">b) Inventory scanning</li>
+            <li onclick="checkAnswer(this, 'B')">c) Manufacturing</li>
+            <li onclick="checkAnswer(this, 'B')">d) Shipping calculations</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>25. Forestry management uses UAVs to:</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'B')">a) Plant trees</li>
+            <li onclick="checkAnswer(this, 'B')">b) Track species</li>
+            <li onclick="checkAnswer(this, 'B')">c) Count employees</li>
+            <li onclick="checkAnswer(this, 'B')">d) Attract tourists</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>26. UAVs aid in entertainment by offering:</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'B')">a) Firework displays</li>
+            <li onclick="checkAnswer(this, 'B')">b) Reusable light shows</li>
+            <li onclick="checkAnswer(this, 'B')">c) Live interviews</li>
+            <li onclick="checkAnswer(this, 'B')">d) Cinematic animations</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>27. IoT improves agricultural yield by monitoring:</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'A')">a) Soil quality</li>
+            <li onclick="checkAnswer(this, 'A')">b) Customer reviews</li>
+            <li onclick="checkAnswer(this, 'A')">c) Marketing trends</li>
+            <li onclick="checkAnswer(this, 'A')">d) Labor costs</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>28. UAVs reduce costs in which industry by performing aerial surveys?</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'B')">a) Retail</li>
+            <li onclick="checkAnswer(this, 'B')">b) Forestry</li>
+            <li onclick="checkAnswer(this, 'B')">c) Manufacturing</li>
+            <li onclick="checkAnswer(this, 'B')">d) Food and Beverage</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>29. Case studies help in understanding:</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'C')">a) Market demand</li>
+            <li onclick="checkAnswer(this, 'C')">b) Quantitative analysis only</li>
+            <li onclick="checkAnswer(this, 'C')">c) Real-life phenomena</li>
+            <li onclick="checkAnswer(this, 'C')">d) Social media trends</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>30. A major benefit of UAVs in construction is:</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'A')">a) Real-time monitoring of job sites</li>
+            <li onclick="checkAnswer(this, 'A')">b) Reduced need for worker training</li>
+            <li onclick="checkAnswer(this, 'A')">c) Less expensive materials</li>
+            <li onclick="checkAnswer(this, 'A')">d) Better customer reviews</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>31. IoT is valuable in telecommunication for:</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'A')">a) Rural internet services</li>
+            <li onclick="checkAnswer(this, 'A')">b) Equipment repair</li>
+            <li onclick="checkAnswer(this, 'A')">c) Customer support</li>
+            <li onclick="checkAnswer(this, 'A')">d) Employee recruitment</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>32. Which of these applications benefits from UAV’s capability for 3D mapping?</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'B')">a) Pharmaceutical</li>
+            <li onclick="checkAnswer(this, 'B')">b) Forestry</li>
+            <li onclick="checkAnswer(this, 'B')">c) Chemical</li>
+            <li onclick="checkAnswer(this, 'B')">d) Healthcare</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>33. IoT improves the chemical industry's logistics by:</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'B')">a) Reducing labor costs</li>
+            <li onclick="checkAnswer(this, 'B')">b) Using sensors for tracking</li>
+            <li onclick="checkAnswer(this, 'B')">c) Using drones</li>
+            <li onclick="checkAnswer(this, 'B')">d) Decreasing vehicle maintenance</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>34. A benefit of UAVs in mining is:</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'C')">a) Real-time health monitoring</li>
+            <li onclick="checkAnswer(this, 'C')">b) Less need for explosives</li>
+            <li onclick="checkAnswer(this, 'C')">c) Better surveillance</li>
+            <li onclick="checkAnswer(this, 'C')">d) Increased labor requirement</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>35. UAVs aid in healthcare by:</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'B')">a) Assisting surgeries</li>
+            <li onclick="checkAnswer(this, 'B')">b) Transporting medical supplies</li>
+            <li onclick="checkAnswer(this, 'B')">c) Monitoring blood pressure</li>
+            <li onclick="checkAnswer(this, 'B')">d) Delivering food</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>36. IoT sensors in the pharmaceutical industry help to:</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'A')">a) Reduce operational costs</li>
+            <li onclick="checkAnswer(this, 'A')">b) Train staff</li>
+            <li onclick="checkAnswer(this, 'A')">c) Improve aesthetics</li>
+            <li onclick="checkAnswer(this, 'A')">d) Promote products</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>37. IoT technology in agriculture allows farmers to:</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'B')">a) Spend less on seeds</li>
+            <li onclick="checkAnswer(this, 'B')">b) Analyze crop health in real-time</li>
+            <li onclick="checkAnswer(this, 'B')">c) Reduce crop yields</li>
+            <li onclick="checkAnswer(this, 'B')">d) Eliminate pesticides</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>38. IoT enhances supply chain management by enabling:</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'B')">a) Faster transactions</li>
+            <li onclick="checkAnswer(this, 'B')">b) Real-time monitoring</li>
+            <li onclick="checkAnswer(this, 'B')">c) Customer feedback collection</li>
+            <li onclick="checkAnswer(this, 'B')">d) Employee tracking</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>39. UAVs in entertainment are primarily used for:</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'B')">a) Managing inventory</li>
+            <li onclick="checkAnswer(this, 'B')">b) Capturing cost-effective visuals</li>
+            <li onclick="checkAnswer(this, 'B')">c) Broadcasting news</li>
+            <li onclick="checkAnswer(this, 'B')">d) Storing data</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+    
+    <div class="question">
+        <p>40. Which of the following is a benefit of using IoT in industry?</p>
+        <ol>
+            <li onclick="checkAnswer(this, 'C')">a) Reduced sensor costs</li>
+            <li onclick="checkAnswer(this, 'C')">b) Faster equipment failure</li>
+            <li onclick="checkAnswer(this, 'C')">c) Improved operational efficiency</li>
+            <li onclick="checkAnswer(this, 'C')">d) Lower employee satisfaction</li>
+        </ol>
+        <div class="feedback"></div>
+    </div>
+        
+    
+    
+
+   
+    
+    
+    
+
+<<script>
+    function checkAnswer(selectedOption, correctAnswer) {
+        // Get the feedback container
+        const feedback = selectedOption.closest('.question').querySelector('.feedback');
+        // Get all options in the current question
+        const options = selectedOption.closest('ol').children;
+        
+        // Disable all options after selection
+        for (let option of options) {
+            option.style.pointerEvents = 'none';
+        }
+
+        // Check if the selected option is correct
+        if (selectedOption.innerText[0] === correctAnswer) {
+            selectedOption.style.backgroundColor = '#4CAF50'; // Correct answer (green)
+            feedback.innerHTML = "<span class='answer'>Correct!</span>";
+        } else {
+            selectedOption.style.backgroundColor = '#F44336'; // Incorrect answer (red)
+            feedback.innerHTML = `<span class='incorrect'>Incorrect! The correct answer is ${correctAnswer}.</span>`;
+            
+            // Highlight correct answer
+            for (let option of options) {
+                if (option.innerText[0] === correctAnswer) {
+                    option.style.backgroundColor = '#4CAF50'; // Correct option (green)
+                }
+            }
+        }
+    }
+</script>
+</body>
+</html>
