@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .question { margin: 20px 0; }
+        .question p { font-weight: bold; }
+        .feedback { color: green; margin-top: 5px; display: none; }
+    </style>
+    <<script>
+        function checkAnswer(selectedOption, correctAnswer) {
+            // Get the feedback container
+            const feedback = selectedOption.closest('.question').querySelector('.feedback');
+            // Get all options in the current question
+            const options = selectedOption.closest('ol').children;
+            
+            // Disable all options after selection
+            for (let option of options) {
+                option.style.pointerEvents = 'none';
+            }
+    
+            // Check if the selected option is correct
+            if (selectedOption.innerText[0] === correctAnswer) {
+                selectedOption.style.backgroundColor = '#4CAF50'; // Correct answer (green)
+                feedback.innerHTML = "<span class='answer'>Correct!</span>";
+            } else {
+                selectedOption.style.backgroundColor = '#F44336'; // Incorrect answer (red)
+                feedback.innerHTML = `<span class='incorrect'>Incorrect! The correct answer is ${correctAnswer}.</span>`;
+                
+                // Highlight correct answer
+                for (let option of options) {
+                    if (option.innerText[0] === correctAnswer) {
+                        option.style.backgroundColor = '#4CAF50'; // Correct option (green)
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+
+<h1>Quiz</h1>
+
+<div class="question">
+    <p>1. What is one major challenge of traditional manufacturing?</p>
+    <ol>
+        <li onclick="checkAnswer(this, 'B')">A) Excessive data availability</li>
+        <li onclick="checkAnswer(this, 'B')">B) Unbalanced workload</li>
+        <li onclick="checkAnswer(this, 'B')">C) Short production time</li>
+        <li onclick="checkAnswer(this, 'B')">D) Real-time optimization</li>
+    </ol>
+    <div class="feedback"></div>
+</div>
+
+<div class="question">
+    <p>2. What is a key benefit of a Smart Factory?</p>
+    <ol>
+        <li onclick="checkAnswer(this, 'B')">A) Increased manual work</li>
+        <li onclick="checkAnswer(this, 'B')">B) Real-time data supply</li>
+        <li onclick="checkAnswer(this, 'B')">C) Increased downtime</li>
+        <li onclick="checkAnswer(this, 'B')">D) Reduced automation</li>
+    </ol>
+    <div class="feedback"></div>
+</div>
+
+<div class="question">
+    <p>3. Which company launched the "Factory of the Future" initiative?</p>
+    <ol>
+        <li onclick="checkAnswer(this, 'A')">A) Airbus</li>
+        <li onclick="checkAnswer(this, 'A')">B) ABB</li>
+        <li onclick="checkAnswer(this, 'A')">C) Kuka</li>
+        <li onclick="checkAnswer(this, 'A')">D) Amazon</li>
+    </ol>
+    <div class="feedback"></div>
+</div>
+
+<div class="question">
+    <p>4. What technology is used by Airbus for production monitoring?</p>
+    <ol>
+        <li onclick="checkAnswer(this, 'C')">A) 2D visualization</li>
+        <li onclick="checkAnswer(this, 'C')">B) Manual logs</li>
+        <li onclick="checkAnswer(this, 'C')">C) 3D real-time visualization</li>
+        <li onclick="checkAnswer(this, 'C')">D) Printed reports</li>
+    </ol>
+    <div class="feedback"></div>
+</div>
+
+<div class="question">
+    <p>5. Which company developed an IoT-enabled factory with connected robots?</p>
+    <ol>
+        <li onclick="checkAnswer(this, 'A')">A) Kuka</li>
+        <li onclick="checkAnswer(this, 'A')">B) DeWalt</li>
+        <li onclick="checkAnswer(this, 'A')">C) ABB</li>
+        <li onclick="checkAnswer(this, 'A')">D) Amazon</li>
+    </ol>
+    <div class="feedback"></div>
+</div>
+
+<!-- Repeat this structure for questions 6-30, changing the correct answer in the onclick function. For brevity, here are just a few examples -->
+
+<div class="question">
+    <p>6. What initiative did DeWalt introduce in the construction industry?</p>
+    <ol>
+        <li onclick="checkAnswer(this, 'B')">A) Predictive maintenance</li>
+        <li onclick="checkAnswer(this, 'B')">B) Construction Internet of Things</li>
+        <li onclick="checkAnswer(this, 'B')">C) Factory of the Future</li>
+        <li onclick="checkAnswer(this, 'B')">D) Zero Downtime System</li>
+    </ol>
+    <div class="feedback"></div>
+</div>
+
+<div class="question">
+    <p>7. Which feature allows Amazon's robotic shelves to improve efficiency?</p>
+    <ol>
+        <li onclick="checkAnswer(this, 'C')">A) Manual handling</li>
+        <li onclick="checkAnswer(this, 'C')">B) Increased data storage</li>
+        <li onclick="checkAnswer(this, 'C')">C) Automated product search</li>
+        <li onclick="checkAnswer(this, 'C')">D) Limited connectivity</li>
+    </ol>
+    <div class="feedback"></div>
+</div>
+<div class="question">
+    <p>8. What is the primary purpose of Caterpillar's AR app in factories?</p>
+    <ol>
+        <li onclick="checkAnswer(this, 'C')">A) Real-time stock updates</li>
+        <li onclick="checkAnswer(this, 'C')">B) Digital marketing</li>
+        <li onclick="checkAnswer(this, 'C')">C) Tool replacement detection</li>
+        <li onclick="checkAnswer(this, 'C')">D) Employee management</li>
+    </ol>
+    <div class="feedback"></div>
+</div>
+
+<div class="question">
+    <p>9. Which technology does Caterpillar use in its marine division for predictive maintenance?</p>
+    <ol>
+        <li onclick="checkAnswer(this, 'B')">A) Manual inspection</li>
+        <li onclick="checkAnswer(this, 'B')">B) IoT-based sensors</li>
+        <li onclick="checkAnswer(this, 'B')">C) Cloud-only solutions</li>
+        <li onclick="checkAnswer(this, 'B')">D) Static monitoring</li>
+    </ol>
+    <div class="feedback"></div>
+</div>
+
+<div class="question">
+    <p>10. Fanuc's Zero Downtime (ZDT) System is designed to:</p>
+    <ol>
+        <li onclick="checkAnswer(this, 'B')">A) Increase factory downtime</li>
+        <li onclick="checkAnswer(this, 'B')">B) Reduce factory downtime with predictive maintenance</li>
+        <li onclick="checkAnswer(this, 'B')">C) Limit automation</li>
+        <li onclick="checkAnswer(this, 'B')">D) Increase robot operating costs</li>
+    </ol>
+    <div class="feedback"></div>
+</div>
+
+<div class="question">
+    <p>11. What is a primary feature of Gehring’s connected manufacturing approach?</p>
+    <ol>
+        <li onclick="checkAnswer(this, 'B')">A) Printed reports</li>
+        <li onclick="checkAnswer(this, 'B')">B) Real-time data transmission to customers</li>
+        <li onclick="checkAnswer(this, 'B')">C) Limited customer interactions</li>
+        <li onclick="checkAnswer(this, 'B')">D) Low fault tolerance</li>
+    </ol>
+    <div class="feedback"></div>
+</div>
+
+<div class="question">
+    <p>12. What platform does Hitachi provide for IIoT applications?</p>
+    <ol>
+        <li onclick="checkAnswer(this, 'A')">A) Lumada</li>
+        <li onclick="checkAnswer(this, 'A')">B) FactoryOS</li>
+        <li onclick="checkAnswer(this, 'A')">C) SmartGrid</li>
+        <li onclick="checkAnswer(this, 'A')">D) EcoFactory</li>
+    </ol>
+    <div class="feedback"></div>
+</div>
+
+<div class="question">
+    <p>13. Maersk uses IoT in shipping to:</p>
+    <ol>
+        <li onclick="checkAnswer(this, 'B')">A) Monitor worker performance</li>
+        <li onclick="checkAnswer(this, 'B')">B) Optimize refrigerated container preservation</li>
+        <li onclick="checkAnswer(this, 'B')">C) Increase shipping times</li>
+        <li onclick="checkAnswer(this, 'B')">D) Track customer preferences</li>
+    </ol>
+    <div class="feedback"></div>
+</div>
+
+<div class="question">
+    <p>14. Magna Steyr’s Smart Packaging involves the use of:</p>
+    <ol>
+        <li onclick="checkAnswer(this, 'B')">A) Printed labels</li>
+        <li onclick="checkAnswer(this, 'B')">B) Bluetooth-enabled tracking</li>
+        <li onclick="checkAnswer(this, 'B')">C) Paper-based inventory</li>
+        <li onclick="checkAnswer(this, 'B')">D) Limited warehouse sensors</li>
+    </ol>
+    <div class="feedback"></div>
+</div>
+
+<div class="question">
+    <p>15. Which company uses driverless vehicles to move parts along the assembly line?</p>
+    <ol>
+        <li onclick="checkAnswer(this, 'B')">A) Amazon</li>
+        <li onclick="checkAnswer(this, 'B')">B) Magna Steyr</li>
+        <li onclick="checkAnswer(this, 'B')">C) Caterpillar</li>
+        <li onclick="checkAnswer(this, 'B')">D) Kuka</li>
+    </ol>
+    <div class="feedback"></div>
+</div>
+
+<div class="question">
+    <p>16. What wearable technology does North Star BlueScope Steel use for worker safety?</p>
+    <ol>
+        <li onclick="checkAnswer(this, 'B')">A) Virtual reality headsets</li>
+        <li onclick="checkAnswer(this, 'B')">B) Helmets with sensors</li>
+        <li onclick="checkAnswer(this, 'B')">C) Manual protective gear</li>
+        <li onclick="checkAnswer(this, 'B')">D) Factory uniforms</li>
+    </ol>
+    <div class="feedback"></div>
+</div>
+
+<div class="question">
+    <p>17. Rio Tinto uses IoT to enable which autonomous technology?</p>
+    <ol>
+        <li onclick="checkAnswer(this, 'B')">A) Real-time data management</li>
+        <li onclick="checkAnswer(this, 'B')">B) Driverless trucks and trains</li>
+        <li onclick="checkAnswer(this, 'B')">C) Paper-based logs</li>
+        <li onclick="checkAnswer(this, 'B')">D) Manual mining operations</li>
+    </ol>
+    <div class="feedback"></div>
+</div>
+
+<div class="question">
+    <p>18. What does Bosch’s Track and Trace Testbed enable?</p>
+    <ol>
+        <li onclick="checkAnswer(this, 'A')">A) Real-time tool tracking and specifications</li>
+        <li onclick="checkAnswer(this, 'A')">B) Real-time vehicle tracking</li>
+        <li onclick="checkAnswer(this, 'A')">C) Limited device monitoring</li>
+        <li onclick="checkAnswer(this, 'A')">D) Automated data reporting</li>
+    </ol>
+    <div class="feedback"></div>
+</div>
+
+<div class="question">
+    <p>19. CityCrop's intelligent indoor garden is designed for:</p>
+    <ol>
+        <li onclick="checkAnswer(this, 'B')">A) Data-only management</li>
+        <li onclick="checkAnswer(this, 'B')">B) Indoor crop growth monitoring</li>
+        <li onclick="checkAnswer(this, 'B')">C) Factory management</li>
+        <li onclick="checkAnswer(this, 'B')">D) Logistics planning</li>
+    </ol>
+    <div class="feedback"></div>
+</div>
+
+<div class="question">
+    <p>20. What IoT-based device by DiageneƟx helps detect microbial diseases in food?</p>
+    <ol>
+        <li onclick="checkAnswer(this, 'B')">A) Soil moisture meter</li>
+        <li onclick="checkAnswer(this, 'B')">B) BioRanger</li>
+        <li onclick="checkAnswer(this, 'B')">C) IoT sensor node</li>
+        <li onclick="checkAnswer(this, 'B')">D) SmartLabel</li>
+    </ol>
+    <div class="feedback"></div>
+</div>
+
+<div class="question">
+    <p>21. Eskesso's smart cooking device connects to:</p>
+    <ol>
+        <li onclick="checkAnswer(this, 'A')">A) Wi-Fi</li>
+        <li onclick="checkAnswer(this, 'A')">B) Bluetooth</li>
+        <li onclick="checkAnswer(this, 'A')">C) Ethernet</li>
+        <li onclick="checkAnswer(this, 'A')">D) Satellite</li>
+    </ol>
+    <div class="feedback"></div>
+</div>
+
+<div class="question">
+    <p>22. What is the focus of MIT’s City Farm project?</p>
+    <ol>
+        <li onclick="checkAnswer(this, 'B')">A) Urban transportation</li>
+        <li onclick="checkAnswer(this, 'B')">B) Indoor farming technology</li>
+        <li onclick="checkAnswer(this, 'B')">C) Water conservation</li>
+        <li onclick="checkAnswer(this, 'B')">D) Smart logistics</li>
+    </ol>
+    <div class="feedback"></div>
+</div>
+
+<div class="question">
+    <p>23. Which company developed a fleet management solution called SmartDrive?</p>
+    <ol>
+        <li onclick="checkAnswer(this, 'A')">A) SmartDrive Systems</li>
+        <li onclick="checkAnswer(this, 'A')">B) Bosch</li>
+        <li onclick="checkAnswer(this, 'A')">C) Caterpillar</li>
+        <li onclick="checkAnswer(this, 'A')">D) Intel</li>
+    </ol>
+    <div class="feedback"></div>
+</div>
+
+<div class="question">
+    <p>24. How does Ocado use IoT in its warehouses?</p>
+    <ol>
+        <li onclick="checkAnswer(this, 'B')">A) Manual picking</li>
+        <li onclick="checkAnswer(this, 'B')">B) Automated robot picking systems</li>
+        <li onclick="checkAnswer(this, 'B')">C) Customer data tracking</li>
+        <li onclick="checkAnswer(this, 'B')">D) Employee monitoring</li>
+    </ol>
+    <div class="feedback"></div>
+</div>
+
+<div class="question">
+    <p>25. Tesla uses IoT in its vehicles primarily for:</p>
+    <ol>
+        <li onclick="checkAnswer(this, 'C')">A) Office management</li>
+        <li onclick="checkAnswer(this, 'C')">B) Customer profiling</li>
+        <li onclick="checkAnswer(this, 'C')">C) Remote diagnostics and updates</li>
+        <li onclick="checkAnswer(this, 'C')">D) Employee location tracking</li>
+    </ol>
+    <div class="feedback"></div>
+</div>
+
+<div class="question">
+    <p>26. Honeywell’s Forge platform is designed to enhance:</p>
+    <ol>
+        <li onclick="checkAnswer(this, 'A')">A) Industrial performance and efficiency</li>
+        <li onclick="checkAnswer(this, 'A')">B) Employee attendance tracking</li>
+        <li onclick="checkAnswer(this, 'A')">C) Customer feedback collection</li>
+        <li onclick="checkAnswer(this, 'A')">D) Office space planning</li>
+    </ol>
+    <div class="feedback"></div>
+</div>
+
+<div class="question">
+    <p>27. What technology does Siemens offer for smart building solutions?</p>
+    <ol>
+        <li onclick="checkAnswer(this, 'D')">A) EdgeX</li>
+        <li onclick="checkAnswer(this, 'D')">B) IoT Hub</li>
+        <li onclick="checkAnswer(this, 'D')">C) Azure IoT</li>
+        <li onclick="checkAnswer(this, 'D')">D) Desigo CC</li>
+    </ol>
+    <div class="feedback"></div>
+</div>
+
+<div class="question">
+    <p>28. In the manufacturing industry, what is the primary use of digital twins?</p>
+    <ol>
+        <li onclick="checkAnswer(this, 'A')">A) Simulating and analyzing real-time processes</li>
+        <li onclick="checkAnswer(this, 'A')">B) Tracking customer data</li>
+        <li onclick="checkAnswer(this, 'A')">C) Employee location tracking</li>
+        <li onclick="checkAnswer(this, 'A')">D) Inventory assessment</li>
+    </ol>
+    <div class="feedback"></div>
+</div>
+
+<div class="question">
+    <p>29. How does John Deere use IoT in agriculture?</p>
+    <ol>
+        <li onclick="checkAnswer(this, 'B')">A) To monitor office equipment</li>
+        <li onclick="checkAnswer(this, 'B')">B) For precision farming and soil analysis</li>
+        <li onclick="checkAnswer(this, 'B')">C) Employee management</li>
+        <li onclick="checkAnswer(this, 'B')">D) Customer feedback analysis</li>
+    </ol>
+    <div class="feedback"></div>
+</div>
+
+<div class="question">
+    <p>30. Schneider Electric's EcoStruxure platform is primarily used for:</p>
+    <ol>
+        <li onclick="checkAnswer(this, 'A')">A) Energy management and automation</li>
+        <li onclick="checkAnswer(this, 'A')">B) Social media analytics</li>
+        <li onclick="checkAnswer(this, 'A')">C) Customer service tracking</li>
+        <li onclick="checkAnswer(this, 'A')">D) Employee productivity monitoring</li>
+    </ol>
+    <div class="feedback"></div>
+</div>
+<div class="question">
+    <p>31. Which feature of IoT in food empowers workers?</p>
+    <ol>
+        <li onclick="checkAnswer(this, 'B')">A) Manual inspections</li>
+        <li onclick="checkAnswer(this, 'B')">B) Automated wearable technology</li>
+        <li onclick="checkAnswer(this, 'B')">C) Higher production targets</li>
+        <li onclick="checkAnswer(this, 'B')">D) Limited supervision</li>
+    </ol>
+    <div class="feedback"></div>
+</div>
+
+<div class="question">
+    <p>32. The SmartLabel initiative is led by:</p>
+    <ol>
+        <li onclick="checkAnswer(this, 'B')">A) Amazon</li>
+        <li onclick="checkAnswer(this, 'B')">B) Grocery Manufacturers Association (GMA)</li>
+        <li onclick="checkAnswer(this, 'B')">C) DeWalt</li>
+        <li onclick="checkAnswer(this, 'B')">D) General Motors</li>
+    </ol>
+    <div class="feedback"></div>
+</div>
+
+<div class="question">
+    <p>33. In the livestock industry, IoT assists with:</p>
+    <ol>
+        <li onclick="checkAnswer(this, 'A')">A) Automated temperature control in barns</li>
+        <li onclick="checkAnswer(this, 'A')">B) Limited feed management</li>
+        <li onclick="checkAnswer(this, 'A')">C) Human-monitored data</li>
+        <li onclick="checkAnswer(this, 'A')">D) Reduced animal monitoring</li>
+    </ol>
+    <div class="feedback"></div>
+</div>
+
+<div class="question">
+    <p>34. Which feature helps reduce time-to-market (TTM) in the food industry?</p>
+    <ol>
+        <li onclick="checkAnswer(this, 'B')">A) Increased manual inspections</li>
+        <li onclick="checkAnswer(this, 'B')">B) IoT-connected processes</li>
+        <li onclick="checkAnswer(this, 'B')">C) Static packaging</li>
+        <li onclick="checkAnswer(this, 'B')">D) Manual data logging</li>
+    </ol>
+    <div class="feedback"></div>
+</div>
+
+<div class="question">
+    <p>35. IoT benefits the food industry by providing:</p>
+    <ol>
+        <li onclick="checkAnswer(this, 'C')">A) Manual quality control</li>
+        <li onclick="checkAnswer(this, 'C')">B) Limited visibility</li>
+        <li onclick="checkAnswer(this, 'C')">C) Automated hazard checklists</li>
+        <li onclick="checkAnswer(this, 'C')">D) Redundant reporting</li>
+    </ol>
+    <div class="feedback"></div>
+</div>
+
+<div class="question">
+    <p>36. IoT-enabled Smart Maintenance helps by:</p>
+    <ol>
+        <li onclick="checkAnswer(this, 'B')">A) Limiting data availability</li>
+        <li onclick="checkAnswer(this, 'B')">B) Monitoring machine performance for early warnings</li>
+        <li onclick="checkAnswer(this, 'B')">C) Disabling warning systems</li>
+        <li onclick="checkAnswer(this, 'B')">D) Restricting maintenance scheduling</li>
+    </ol>
+    <div class="feedback"></div>
+</div>
+
+<div class="question">
+    <p>37. IoT allows farmers to improve irrigation using:</p>
+    <ol>
+        <li onclick="checkAnswer(this, 'B')">A) Drone technology</li>
+        <li onclick="checkAnswer(this, 'B')">B) Soil moisture sensors</li>
+        <li onclick="checkAnswer(this, 'B')">C) Automated feeding</li>
+        <li onclick="checkAnswer(this, 'B')">D) Wearable devices</li>
+    </ol>
+    <div class="feedback"></div>
+</div>
+
+<div class="question">
+    <p>38. An example of IoT use in predictive analysis in the food industry is:</p>
+    <ol>
+        <li onclick="checkAnswer(this, 'B')">A) Using manual logs</li>
+        <li onclick="checkAnswer(this, 'B')">B) Tracking early warning signs</li>
+        <li onclick="checkAnswer(this, 'B')">C) Limiting data access</li>
+        <li onclick="checkAnswer(this, 'B')">D) Only offline analysis</li>
+    </ol>
+    <div class="feedback"></div>
+</div>
+
+<div class="question">
+    <p>39. FarmShelf provides indoor farming with features like:</p>
+    <ol>
+        <li onclick="checkAnswer(this, 'A')">A) IoT-based climate control</li>
+        <li onclick="checkAnswer(this, 'A')">B) Limited monitoring</li>
+        <li onclick="checkAnswer(this, 'A')">C) Offline crop tracking</li>
+        <li onclick="checkAnswer(this, 'A')">D) High-maintenance operations</li>
+    </ol>
+    <div class="feedback"></div>
+</div>
+
+<div class="question">
+    <p>40. Which IoT device assists with smart coffee brewing?</p>
+    <ol>
+        <li onclick="checkAnswer(this, 'A')">A) Spinn</li>
+        <li onclick="checkAnswer(this, 'A')">B) Intellicup</li>
+        <li onclick="checkAnswer(this, 'A')">C) SmartLabel</li>
+        <li onclick="checkAnswer(this, 'A')">D) BioRanger</li>
+    </ol>
+    <div class="feedback"></div>
+</div>
+
+
+<!-- Continue this structure up to question 30, ensuring to change the correct answer in the `onclick="checkAnswer(this, 'CorrectOption')"` attribute. -->
+
+
+<!-- Continue up to question 30, following the same pattern -->
+</body>
+</html>
