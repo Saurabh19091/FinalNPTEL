@@ -3,13 +3,410 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>IOT Assignment Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        #quiz-container {
+            width: 60%;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #question-container {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+
+        #options-container {
+            margin-bottom: 30px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin: 5px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .result-container {
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
-    <h1>भागता है असाइनमेंट से? 😜</h1>
-    <p>पढ़ाई ऐसी चीज़ है कि जितना दूर भागो, उतनी ही पास आती है! 📚</p>
-    <p>अरे भई, असाइनमेंट को देख के सोचना बंद करो, वो तुम्हें जज नहीं कर रहा! 🤓</p>
-    <p>तुम्हारी किताबें इंतज़ार कर रही हैं, कह रही हैं - "प्यारे, इधर भी देख लो!" 😅</p>
-    <p>पढ़ाई से ऐसे भागने का क्या फायदा, जब आख़िर में वही तुम्हें पास करवाएगी! 😆</p>
+    <div id="quiz-container">
+        <h1>Industrial Sensors Quiz</h1>
+        <div id="quiz">
+            <div id="question-container">
+                <!-- Question will appear here -->
+            </div>
+            <div id="options-container">
+                <!-- Options will appear here -->
+            </div>
+            <button id="next-button" onclick="nextQuestion()">Next</button>
+        </div>
+        <div id="result-container" class="hidden result-container">
+            <h2>Your Score: <span id="score"></span></h2>
+            <button onclick="restartQuiz()">Restart Quiz</button>
+        </div>
+    </div>
+
+    <script>
+        // Questions array
+        const questions = [
+            {
+                question: "Which of the following is one of the benefits of sensor usage in industry?",
+                options: ["Increasing downtime due to routine maintenance", "Reduced manual intervention for sensing in hazardous areas", "Manual data entry", "Limited operational efficiency"],
+                correct: 1
+            },
+            {
+                question: "Ultrasonic sensors can be used for _______________.",
+                options: ["Object detection", "Distance measurement", "Dynamic body detection", "All of the above"],
+                correct: 3
+            },
+            {
+                question: "Which sensor can be used for distance measurement, pattern matching, color checking, structured lighting, and motion capture?",
+                options: ["Acceleration sensor", "PIR Sensor", "Ultrasonic sensor", "Image sensor"],
+                correct: 3
+            },
+            {
+                question: "What is another name for MOS gas sensors?",
+                options: ["Electro-Resistive Gas sensors", "Chemi-Resistive Gas sensors", "Photo-Resistive Gas sensors", "Thermo-Resistive Gas sensors"],
+                correct: 1
+            },
+            {
+                question: "What is the 'Optimum Temperature' in the context of MOS gas sensors?",
+                options: ["The temperature at which the sensor does not respond", "The temperature at which the sensor gives the best response", "The lowest temperature at which the sensor operates", "The highest temperature the sensor can withstand"],
+                correct: 1
+            },
+            {
+                question: "What happens to the resistance of a gas sensor when it detects Volatile Organic Compounds (VOCs)?",
+                options: ["The resistance remains constant", "The resistance changes from its baseline resistance", "The resistance increases only", "The resistance decreases only"],
+                correct: 1
+            },
+            {
+                question: "What are the typical requirements for industrial communication?",
+                options: ["High duty-cycle, high latency, high jitter", "Real-time, very low duty-cycle, very low latency, very low jitter", "Manual data processing, high latency, low duty-cycle", "High duty-cycle, low latency, high jitter"],
+                correct: 1
+            },
+            {
+                question: "What is the range of data transmission rate for EtherCat?",
+                options: ["10 Mbps", "100 Mbps", "1 Gbps", "200 Mbps"],
+                correct: 3
+            },
+            {
+                question: "Which topology is the EtherNet/IP standard based on?",
+                options: ["Universal Serial Bus topology", "Active star topology", "Passive bus topology", "Hybrid ring topology"],
+                correct: 1
+            },
+            {
+                question: "Which Profibus variant handles communication between PCs and Programmable Logic Controllers?",
+                options: ["Profibus DP", "Profibus PA", "Profibus FMS", "Profibus MBP"],
+                correct: 2
+            },
+            {
+                question: "Which Profibus variant is suitable for hazardous environments?",
+                options: ["Profibus DP", "Profibus PA", "Profibus FMS", "Profibus MBP"],
+                correct: 1
+            },
+            {
+                question: "Which network topology does the Interbus use?",
+                options: ["Active Ring Topology", "Bus Topology", "Mesh Topology", "Star Topology"],
+                correct: 1
+            },
+            {
+                question: "What is the latency supported by Tactile Internet?",
+                options: ["< 1 ms round trip latency", "10-20 ms round trip latency", "50-100 ms round trip latency", "200-500 ms round trip latency"],
+                correct: 0
+            },
+            {
+                question: "Which frequency band does the 5G NR use for high-band communication?",
+                options: ["<1 GHz", "1-6 GHz", ">24 GHz", "10-20 GHz"],
+                correct: 2
+            },
+            {
+                question: "What are the three components of the Modbus architecture?",
+                options: ["Modbus Node, Modbus Junction, Modbus Branch", "Modbus Client, Modbus Router, Modbus Server", "Modbus Publisher, Modbus Broker, Modbus Subscribers", "Modbus Master, Modbus Gateway, Modbus Slaves"],
+                correct: 3
+            },
+            
+            {
+                question: "1. _________ stands for L in LPWAN. Fill in the blanks",
+                options: ["a. Low", "b. Less", "c. Light", "d. Level"],
+                correct: 0,
+                justification: "Please refer to Slide 3 of Lecture 1 of Week 7"
+            },
+            {
+                question: "2. In which of the following radio bands does the SIGFOX radio link operate?",
+                options: ["a. Licensed ISM radio bands", "b. Unlicensed ISM radio bands", "c. Licensed GPS radio bands", "d. Unlicensed GPS radio bands"],
+                correct: 1,
+                justification: "Please refer to Slide 5 of Lecture 1 of Week 7"
+            },
+            {
+                question: "3. The wireless throughput achieved by SIGFOX is up to ___________ bits per second. Fill in the blanks.",
+                options: ["a. 10", "b. 100", "c. 1000", "d. 10000"],
+                correct: 1,
+                justification: "Please refer to Slide 5 of Lecture 1 of Week 7"
+            },
+            {
+                question: "4. Which IEEE standard is the physical and MAC layer of Zigbee based on?",
+                options: ["a. IEEE 802.11", "b. IEEE 802.15.20", "c. IEEE 802.15.4", "d. IEEE 802.3"],
+                correct: 2,
+                justification: "Please refer to Slide 5 of Lecture 2 of Week 7"
+            },
+            {
+                question: "5. “Zigbee’s communication ranges typically vary between 10-100 meters depending on the device variant.” State true or false.",
+                options: ["a. True", "b. False"],
+                correct: 0,
+                justification: "Please refer to Slide 5 of Lecture 2 of Week 7"
+            },
+            {
+                question: "6. Which of the following is a product by Digi?",
+                options: ["a. XBee", "b. Jbee", "c. Xigbee", "d. Jigbee"],
+                correct: 0,
+                justification: "Please refer to Slide 7 of Lecture 2 of Week 7"
+            },
+            {
+                question: "7. What is the full form of CPS that seamlessly monitors and controls the physical processes by integrating computational and physical components?",
+                options: ["a. Cyber Physical Systems", "b. Cyber Practical Systems", "c. Computer Physical Systems", "d. Cyber Physical Store"],
+                correct: 0,
+                justification: "Please refer to Slide 4 of Lecture 3 of Week 7"
+            },
+            {
+                question: "8. Which of the following is/are true about rule-based engines in the context of Complex Event Processing?",
+                options: ["a. Extract causal and temporal patterns using predefined rules", "b. Handles multiple data streams and correlates them to provide meaningful output", "c. Can process data in near real-time", "d. All of the above"],
+                correct: 3,
+                justification: "Please refer to Slide 5 of Lecture 3 of Week 7"
+            },
+            {
+                question: "9. Which of the following is false about middleware in the context of IIoT processing?",
+                options: ["a. It is the software layer between the infrastructure layer and the application layer", "b. It provides services according to device functionality", "c. It does not support for heterogeneity, security", "d. Many middleware solutions are based on service-oriented architecture"],
+                correct: 2,
+                justification: "Please refer to Slide 7 of Lecture 3 of Week 7"
+            },
+            {
+                question: "10. The SWAMP project developed IoT-based methods and approaches for smart water management in the precision irrigation domain. Which of the following services can be rendered by Smart Water Management Platform?",
+                options: ["a. Entirely replicable services", "b. Fully customizable services", "c. Application-specific services", "d. All of the above"],
+                correct: 3,
+                justification: "Please refer to Slide 4 of Lecture 4 of Week 7"
+            },
+            {
+                question: "11. “The objectives of Vineyard Health Monitoring is to increase the yield and quality of grapes with optimal water use.” State true or false.",
+                options: ["a. True", "b. False"],
+                correct: 0,
+                justification: "Please refer to Slide 9 of Lecture 4 of Week 7"
+            },
+            {
+                question: "12. SmartSantander is an IoT-based smart city deployment platform for large-scale applications. What does AAA stand for in its architecture layer?",
+                options: ["a. Authentication, Authorization, and Accounting", "b. Automation, Application, and Accounting", "c. Automation, Authorization, and Accounting", "d. Authentication, Application, and Accounting"],
+                correct: 0,
+                justification: "Please refer to Slide 12 of Lecture 4 of Week 7"
+            },
+            {
+                question: "13. “Open Loop Control is never used to control decisions independent of process variables in Industrial Control Systems.” State true or false.",
+                options: ["a. True", "b. False"],
+                correct: 1,
+                justification: "Please refer to Slide 4 of Lecture 5 of Week 7"
+            },
+            {
+                question: "14. ____________ is a type of Industrial Control Systems. Fill in the blanks.",
+                options: ["a. Programmable Local Controllers", "b. Distributed Command Systems", "c. Supervisory Control and Data Acquisition", "d. Distinct Control Systems"],
+                correct: 2,
+                justification: "Please refer to Slide 5 of Lecture 5 of Week 7"
+            },
+            {
+                question: "15. Which of the following is not a component of Supervisory Control and Data Acquisition?",
+                options: ["a. Remote Telemetry Units", "b. Remote Telephonic Units", "c. SCADA master units", "d. Human-Machine Interface"],
+                correct: 1,
+                justification: "Please refer to Slide 7 of Lecture 5 of Week 7"
+            },
+            {
+                question: "1. Which of the following statements is TRUE about unsupervised methods?",
+                options: ["a. They require labeled data to function.", "b. They find structure in the input data on their own.", "c. They are always more accurate than supervised methods.", "d. They are not at all useful for clustering tasks."],
+                correct: 1,
+                justification: "Please refer to Slide 8 of Lecture 1 of Week 8"
+            },
+            
+            {
+                question: "2. “Deployment of IIoT analytics typically consists of three steps - i) train a (predictive) analytics model, ii) test and validate the model on previously unseen data, and iii) deploy the model to make predictions on real (streaming) data.” State True or False.",
+                options: ["a. True", "b. False"],
+                correct: 0,
+                justification: "Please refer to Slide 11 of Lecture 1 of Week 8"
+            },
+            
+            {
+                question: "3. ___________ requires fine-tuning a trained model. This approach requires less amount of data. Therefore, the time required for processing and computation may be reduced from hours to minutes and from weeks to days. Fill in the blanks.",
+                options: ["a. Transfer Learning", "b. Decision Tree", "c. Regression", "d. Naïve Bayes"],
+                correct: 0,
+                justification: "Please refer to the book: Introduction to Industry 4.0 and Industrial Internet of Things, chapter no.-13, page no.-268"
+            },
+            
+            {
+                question: "4. Which of the following is false about Reinforcement Learning?",
+                options: ["a. There is an external supervisor to guide the agent.", "b. There is a reward function which acts as feedback to the agent.", "c. It builds a knowledge graph from the constant feedback of the corresponding actions.", "d. None of the above"],
+                correct: 0,
+                justification: "Please refer to Slide 15-16 of Lecture 2 of Week 8"
+            },
+            
+            {
+                question: "5. Which of the following machine learning techniques is used to identify similar groups of data, coined as clustering?",
+                options: ["a. Supervised", "b. Unsupervised", "c. Classification", "d. Regression"],
+                correct: 1,
+                justification: "Please refer to Slide 8 of Lecture 2 of Week 8"
+            },
+            
+            {
+                question: "6. In ___________, one data point may belong to more than one cluster. Fill in the blanks.",
+                options: ["a. K-Means", "b. Fuzzy c-Means", "c. Naïve Bayes", "d. Decision Tree"],
+                correct: 1,
+                justification: "Please refer to Slide 9 of Lecture 2 of Week 8"
+            },
+            
+            {
+                question: "7. “Machine learning is a subset of deep learning which can learn automatically by finding the features of the object on its own.” State True or False.",
+                options: ["a. True", "b. False"],
+                correct: 1,
+                justification: "Please refer to Slide 3 of Lecture 3 of Week 8"
+            },
+            
+            {
+                question: "8. When does a deep learning model typically provide better accuracy?",
+                options: ["a. When the amount of data is very limited", "b. When the amount of data is huge", "c. When data is unavailable", "d. All of the above"],
+                correct: 1,
+                justification: "Please refer to Slide 6 of Lecture 3 of Week 8"
+            },
+            
+            {
+                question: "9. Which of the following can be achieved by deploying cloud in IIoT?",
+                options: ["a. High computational speed for data monitoring and analytics", "b. Scalable and secure services", "c. Storage of huge amounts of data", "d. All of the above"],
+                correct: 3,
+                justification: "Please refer to Slide 5 of Lecture 4 of Week 8"
+            },
+            
+            {
+                question: "10. Which of the following services can NOT be provided by utilizing cloud computing?",
+                options: ["a. Software-as-a-Service", "b. Platform-as-a-Service", "c. Pivot-as-a-Service", "d. Infrastructure-as-a-Service"],
+                correct: 2,
+                justification: "Please refer to Slide 8-10 of Lecture 4 of Week 8"
+            },
+            
+            {
+                question: "11. Which of the following is rendered by a Consumer IoT cloud platform?",
+                options: ["a. A large number of data points", "b. Modest security", "c. Return on investment (ROI) sensitive", "d. Quality of Service"],
+                correct: 1,
+                justification: "Please refer to Slide 15 of Lecture 4 of Week 8"
+            },
+            
+            {
+                question: "12. MindSphere is the cloud-based, open IoT operating system. Which of the following features are supported by the MindSphere?",
+                options: ["a. Security supports", "b. Procurement and distribution", "c. Automated exploitation of performance and intelligence", "d. All of the above"],
+                correct: 3,
+                justification: "Please refer to Slide 21 of Lecture 4 of Week 8"
+            },
+            
+            {
+                question: "13. Which of the following is not a C3 IoT Platform tool?",
+                options: ["a. Ex Machina", "b. Data Explorer", "c. Data Science Notebook", "d. Type Developer"],
+                correct: 3,
+                justification: "Please refer to Slide 4 of Lecture 5 of Week 8"
+            },
+            
+            {
+                question: "14. “Cashify is an Industrial IoT platform that facilitates real-time monitoring and low-cost solutions.” State true or false.",
+                options: ["a. True", "b. False"],
+                correct: 1,
+                justification: "Please refer to Slide 12 of Lecture 5 of Week 8"
+            },
+            
+            {
+                question: "15. Which of the following statements is false about fog computing?",
+                options: ["a. An added layer between the edge and the cloud layer", "b. A complete replacement of Cloud", "c. Distributed at one level, centralized on the other", "d. Intelligent in providing services like filtering, aggregation, and translation"],
+                correct: 1,
+                justification: "Please refer to Slide 12 of Lecture 5 of Week 8"
+            }
+            
+        
+        ];
+
+        let currentQuestionIndex = 0;
+        let score = 0;
+
+        // Function to load the next question
+        function loadQuestion() {
+            const questionContainer = document.getElementById('question-container');
+            const optionsContainer = document.getElementById('options-container');
+            
+            if (currentQuestionIndex < questions.length) {
+                const currentQuestion = questions[currentQuestionIndex];
+                questionContainer.textContent = currentQuestion.question;
+
+                optionsContainer.innerHTML = ''; // Clear previous options
+                currentQuestion.options.forEach((option, index) => {
+                    const button = document.createElement('button');
+                    button.textContent = option;
+                    button.onclick = () => checkAnswer(index);
+                    optionsContainer.appendChild(button);
+                });
+            } else {
+                showResults();
+            }
+        }
+
+        // Function to check if the selected answer is correct
+        function checkAnswer(selectedIndex) {
+            const currentQuestion = questions[currentQuestionIndex];
+            
+            if (selectedIndex === currentQuestion.correct) {
+                score++;
+            }
+            
+            currentQuestionIndex++;
+            loadQuestion();
+        }
+
+        // Function to display results
+        function showResults() {
+            const quizContainer = document.getElementById('quiz');
+            const resultContainer = document.getElementById('result-container');
+            const scoreElement = document.getElementById('score');
+            
+            quizContainer.style.display = 'none';
+            resultContainer.style.display = 'block';
+            scoreElement.textContent = `${score} / ${questions.length}`;
+        }
+
+        // Function to restart the quiz
+        function restartQuiz() {
+            currentQuestionIndex = 0;
+            score = 0;
+            document.getElementById('quiz').style.display = 'block';
+            document.getElementById('result-container').style.display = 'none';
+            loadQuestion();
+        }
+
+        // Initial load
+        loadQuestion();
+    </script>
 </body>
 </html>
